@@ -12,10 +12,74 @@
 
     /* --- Variables de uso en la web --- */
     --background-color: var(--cream-lighter); /* Fondo general */
-    --card-background: var(--cream-pale); /* Fondo de las cards / .mascota-item */
+    --card-background: var(--cream-soft); /* Fondo de las cards / .mascota-item */
     --primary-color: var(--purple-medium); /* Titulos y elementos importantes */
     --secondary-color: var(--purple-light); /* Bordes y detalles */
     --button-color: var(--purple-dark); /* Botones */
     --text-color: #333; /* Texto General */
     --text-button-color: var(--cream-lighter); /* Texto Botones */
+    --text-nav-color: var(--cream-pale); /* Texto Nav */
+    --text-footer-color: var(--cream-pale); /* Texto Footer */
+
+    /* --- Fuente Principal --- */
+    --main-font: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-header {
+    height: 100px;
+    justify-content: center;
+    background-color: var(--purple-medium);
+    color: var(--text-nav-color);
+    border: 0;
+}
+
+aside {
+    width: 250px;
+}
+
+nav div {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    min-height: 60vh;
+}
+
+.mascota-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.mascota-item {
+    background-color: var(--card-background);
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.mascota-itam:hover{
+    background-color: var(--purple-light);
+    transition: all 0.6s ease;
+}
+
+footer {
+    height: 250px;
+    background-color: var(--purple-medium);
+    padding: 10px;
+    color: var(--text-footer-color);
 }
