@@ -1,0 +1,21 @@
+:root{
+    /* --- Colores Descriptivos ---*/
+    --purple-dark: #6A0DAD;
+    --purple-medium: #8E44AD;
+    --purple-light: #BB8FCE;
+    --pink-light: #FFB6C1;
+    --pink-pale: #F5B7B1;
+    --green-soft: #A9DFBF;
+    --cream-pale: #FDE2E2;
+    --cream-soft: #FDE8D0;
+    --cream-lighter: #FFF3E0;
+
+    /* --- Variables de uso en la web --- */
+    --background-color: var(--cream-lighter); /* Fondo general */
+    --card-background: var(--cream-pale); /* Fondo de las cards / .mascota-item */
+    --primary-color: var(--purple-medium); /* Titulos y elementos importantes */
+    --secondary-color: var(--purple-light); /* Bordes y detalles */
+    --button-color: var(--purple-dark); /* Botones */
+    --text-color: #333; /* Texto General */
+    --text-button-color: var(--cream-lighter); /* Texto Botones */
+}
