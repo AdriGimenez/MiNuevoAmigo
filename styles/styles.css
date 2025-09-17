@@ -22,8 +22,12 @@
     --text-footer-color: var(--cream-pale); /* Texto Footer */
 
     /* --- Fuente Principal --- */
-    --main-font: 'Courier New', Courier, monospace;
-    font-weight: bold;
+    --main-font: 'Montserrat','Courier New', Courier, monospace;
+}
+
+html {
+    font-family: var(--main-font);
+    font-size: 10px;
 }
 
 body {
