@@ -141,6 +141,7 @@ main {
 
 /* --- SECCION DE MASCOTAS --- */
 .main-mascota{
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -155,47 +156,35 @@ main {
 .mascota-brisa .mascota-img,
 .mascota-brisa .mascota-img-hover{
     background-image: url('../img/Brisa.jpg');
-    /*background-size: cover;
-    background-position: center;*/
 }
 
 .mascota-mimi .mascota-img,
 .mascota-mimi .mascota-img-hover{
     background-image: url('../img/Mimi.jpeg');
-    /*background-size: cover;
-    background-position: center;*/
 }
 
 .mascota-dulce .mascota-img,
 .mascota-dulce .mascota-img-hover{
     background-image: url('../img/Dulce.jpg');
-    /*background-size: cover;
-    background-position: center;*/
 }
 
 .mascota-baxter .mascota-img,
 .mascota-baxter .mascota-img-hover{
     background-image: url('../img/Baxter.jpg');
-/*    background-size: cover;
-    background-position: center;*/
 }
 
 .mascota-kiro .mascota-img,
 .mascota-kiro .mascota-img-hover{
     background-image: url('../img/Kiro.jpg');
-/*    background-size: cover;
-    background-position: center;*/
 }
 
 .mascota-cira .mascota-img,
 .mascota-cira .mascota-img-hover{
     background-image: url('../img/Cira.jpg');
-/*    background-size: cover;
-    background-position: center;*/
 }
 
 .mascota-like{
-    width: 10px;
+    width: 18px;
 }
 
 .mascota-img{
@@ -220,13 +209,14 @@ main {
 .mascota-img-hover{
     transition: 0.2s all ease-out;
     background-size: cover;
-    background-position: center;
+    background-position: center; 
     background-repeat: no-repeat;
     width: 100%;
     position: absolute;
     height: 235px;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
+    top: 0;
 }
 
 .mascota-item {
@@ -246,7 +236,7 @@ main {
 }
 
 .mascota-info{
-    z-index: 2;
+    z-index: 1;
     background-color: #fff;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
@@ -269,8 +259,8 @@ main {
 }
 
 .mascota-item:hover .mascota-img-hover{
+    opacity: 0.3; 
     height: 100%;
-    opacity: 0.3;
 }
 
 .mascota-item:hover .mascota-info{
