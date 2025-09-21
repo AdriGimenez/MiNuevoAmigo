@@ -300,7 +300,7 @@ footer {
     justify-content: flex-start;
 }
 
-/* --- BOTONES --- */
+/* --- BOTONES 
 button {
     background-color: var(--button-color);
     color: var(--text-button-color);
@@ -314,9 +314,9 @@ button {
 
 button:hover {
     background-color: var(--purple-dark);
-}
+}--- */
 
-.btn-temporal {
+.button {
     background-color: var(--purple-medium);
     color: var(--white-bright);
     text-decoration: none;
@@ -324,9 +324,10 @@ button:hover {
     border-radius: 0.5rem;
     font-weight: 500;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
 }
 
-.btn-temporal:hover {
+.button:hover {
     background-color: var(--purple-dark);
     transform: translateY(-0.1rem);
 }
