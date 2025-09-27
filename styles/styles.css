@@ -40,14 +40,18 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* --- BARRA DE NAVEGACION --- */
 .nav-header {
-    height: 75px;
+    height: 70px;
     background-color: var(--purple-medium);
     color: var(--text-nav-color);
     border: 0;
+    width: 100%;
 }
 
 nav div {
@@ -466,3 +470,12 @@ footer {
     margin-bottom: 1.5rem;
 }
 
+.hero-title {
+  font-size: 3rem;
+  color: var(--purple-medium); /* relleno morado */
+  text-shadow: 
+    1px 1px 0 #ffffff,
+   -1px 1px 0 #ffffff,
+    1px -1px 0 #ffffff,
+   -1px -1px 0 #ffffff;
+}
