@@ -354,14 +354,12 @@ nav div {
 footer {
     height: 40px;
     background-color: var(--purple-medium);
-    padding: 5px 20px;
     color: var(--text-footer-color);
-
     display: flex;
     align-items: center;
     justify-content: flex-start;
-
-    width: 100%;
+    width: calc(100% - 50px);
+    padding-left: 50px;
 }
 
 /* --- BOTONES --- */
@@ -437,7 +435,6 @@ footer {
     justify-content: flex-end;
     color: var(--purple-dark);
     text-align: center;
-    padding-right: 5%;
     margin-top: 15px;
     flex-direction: row;
 }
