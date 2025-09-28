@@ -615,3 +615,40 @@ footer {
 .mascota-filter li:hover {
     color: var(--purple-medium);
 }
+
+/* --- SECCION CASOS DE EXITO / CONSEJOS --- */
+.adoption-tips li span.highlight,
+.other-tips li span.highlight {
+    color: var(--purple-dark);
+    font-weight: bold;
+}
+
+.adoption-tips li,
+.other-tips li {
+    color: var(--purple-medium);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.adoption-tips h3, .other-tips h3,
+.success-stories h3{
+    text-decoration: underline;
+    text-align: center;
+    color: var(--purple-dark);
+}
+
+.tips-container {
+
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 20px 20px;
+}
+
+.adoption-tips, .other-tips {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
