@@ -20,7 +20,6 @@
     --primary-color: var(--purple-medium); /* Titulos y elementos importantes */
     --secondary-color: var(--purple-light); /* Bordes y detalles */
     --button-color: var(--purple-dark); /* Botones */
-    --text-color: #333; /* Texto General */
     --text-button-color: var(--cream-lighter); /* Texto Botones */
     --text-nav-color: var(--cream-pale); /* Texto Nav */
     --text-footer-color: var(--cream-pale); /* Texto Footer */
@@ -36,7 +35,6 @@
 body {
     font-family: var(--main-font);
     background-color: var(--background-color);
-    color: var(--text-color);
     height: 100%;
     margin: 0;
     padding: 0;
@@ -53,7 +51,7 @@ main {
 
 /* --- BARRA DE NAVEGACION --- */
 .nav-header {
-    height: 70px;
+    height: 60px;
     background-color: var(--purple-medium);
     color: var(--text-nav-color);
     border: 0;
@@ -75,8 +73,8 @@ nav div {
 }
 
 .nav-logo {
-    margin-right: 25px;
-    margin-top: 10px;
+    margin-right: 20px;
+    margin-top: 3px;
     
 }
 
@@ -651,4 +649,41 @@ footer {
     padding: 5px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.success-stories {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    background-color: #fff;
+    margin: 20px 0 20px 20px;
+    border-radius: 10px;
+}
+
+.case {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--purple-medium);
+    border-top: 2px dotted var(--purple-medium);
+    padding: 10px;
+}
+
+.case-left {
+    flex-direction: row;
+}
+
+.case-right {
+    flex-direction: row-reverse;
+}
+
+.case img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.case p {
+    flex: 1;
 }
