@@ -727,7 +727,6 @@ footer {
     }
 }
 
-
 /* 📱 Teléfonos pequeños (hasta 480px) */
 @media (max-width: 480px) {
     .nav-logo { display: none; }
@@ -928,5 +927,10 @@ footer {
     .hero .button {
         font-size: 1.1rem;
         padding: 0.4rem 0.8rem;
+    }
+
+    .mascota-filter {
+        flex: 0 0 150px;
+        margin: 0;
     }
 }
