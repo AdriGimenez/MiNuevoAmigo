@@ -49,33 +49,32 @@ main {
     background-color: var(--background-color);
 }
 
-/* --- BARRA DE NAVEGACION --- */
+/* --- NAV BAR GENERAL --- */
 .nav-header {
     height: 60px;
     background-color: var(--purple-medium);
     color: var(--text-nav-color);
-    border: 0;
     width: 100%;
-}
-
-nav div {
-    display: flex;
-    gap: 25px;
-    align-items: center;
+    position: relative; /* para que el menú se posicione respecto al header */
+    z-index: 10;
 }
 
 .nav-bounds {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 0 50px;
 }
 
-.nav-logo {
-    margin-right: 20px;
-    margin-top: 3px;
-    
+.nav-logo img {
+    display: block;
+}
+
+/* Links en escritorio */
+nav div {
+    display: flex;
+    gap: 25px;
+    align-items: center;
 }
 
 .nav-link {
@@ -104,8 +103,6 @@ nav div {
     border-bottom: 2px solid var(--purple-dark);
     transform: scaleY(2);
     opacity: 0;
-    transition: 0.3s;
-    pointer-events: none;
     transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
@@ -137,6 +134,31 @@ nav div {
     transform: scale(1);
     opacity: 1;
 }
+
+/* --- NAV BAR CHECKBOX (Mobile) --- */
+.nav-toggle {
+    display: none; /* escondemos el checkbox */
+}
+
+/* Icono hamburguesa */
+.nav-hamburguer {
+    display: none; /* solo aparece en mobile */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.nav-hamburguer span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--text-nav-color);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
 
 /* --- SECCION DE MASCOTAS --- */
 .main-mascota{
@@ -565,20 +587,6 @@ footer {
     transform: translateY(0);
 }
 
-/* --- RESPONSIVE ---*/
-
-@media (max-width: 900px){
-    .mascota-item{
-        width: calc(50% - 15px);
-    }
-}
-
-@media (max-width: 600px){
-    .mascota-item{
-        width: 100%;
-    }
-}
-
 /* --- FILTROS ---*/
 .mascota-filter {
     flex: 0 0 220px;
@@ -686,4 +694,92 @@ footer {
 
 .case p {
     flex: 1;
+}
+
+/* --- RESPONSIVE ---*/
+
+@media (max-width: 900px){
+    .mascota-item{
+        width: calc(50% - 15px);
+    }
+}
+
+@media (max-width: 600px){
+    .mascota-item{
+        width: 100%;
+    }
+}
+
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 767px) {
+  /* Mostrar hamburguesa en mobile */
+  .nav-hamburguer {
+    display: flex;
+  }
+
+  /* Ocultar links por defecto en mobile */
+  .nav-link {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 40%;
+    margin: 0 auto;
+    background-color: var(--purple-medium);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    min-width: 200px;
+  }
+  /* Links apilados en columna */
+  .nav-link div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 5px 0;
+  }
+
+  /* Letra más chica en mobile */
+  .nav-link div a {
+    font-size: 18px;
+    padding: 5px;
+    text-align: center;
+  }
+
+  /* Cuando el checkbox está activado => mostrar menú */
+  .nav-toggle:checked + .nav-hamburguer + .nav-link {
+    display: block;
+  }
+
+  /* animación del ícono hamburguesa -> X */
+  .nav-toggle:checked + .nav-hamburguer span:nth-child(1){
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .nav-toggle:checked + .nav-hamburguer span:nth-child(2){
+    opacity: 0;
+  }
+  .nav-toggle:checked + .nav-hamburguer span:nth-child(3){
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width:1024px){
+
+}
+
+ /* --- Extra Mobile < 450px --- */
+@media (max-width: 450px) {
+    .nav-bounds{
+        padding-left: 5px;
+        padding-right: 15px;
+    }
+}
+
+@media (min-width: 535px) and (max-width: 599px) {
+    .nav-bounds{
+        padding-left: 35px;
+        padding-right: 35px;
+    }
 }
