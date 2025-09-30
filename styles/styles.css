@@ -803,3 +803,85 @@ footer {
         padding: 0.4rem 0.8rem;
     }
 }
+
+/* 📱 Teléfonos normales (481px a 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  /* Mostrar hamburguesa en mobile */
+  .nav-hamburguer {
+    display: flex;
+  }
+
+  /* Ocultar links por defecto en mobile */
+  .nav-link {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 40%;
+    margin: 0 auto;
+    background-color: var(--purple-medium);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    min-width: 200px;
+  }
+  /* Links apilados en columna */
+  .nav-link div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 5px 0;
+  }
+
+  /* Letra más chica en mobile */
+  .nav-link div a {
+    font-size: 18px;
+    padding: 5px;
+    text-align: center;
+  }
+
+  /* Cuando el checkbox está activado => mostrar menú */
+  .nav-toggle:checked + .nav-hamburguer + .nav-link {
+    display: block;
+  }
+
+  /* animación del ícono hamburguesa -> X */
+  .nav-toggle:checked + .nav-hamburguer span:nth-child(1){
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .nav-toggle:checked + .nav-hamburguer span:nth-child(2){
+    opacity: 0;
+  }
+  .nav-toggle:checked + .nav-hamburguer span:nth-child(3){
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .hero {
+        height: 80vh;
+    }
+        .hero-title {
+        font-size: 1.5rem;
+    }
+    .hero-overlay {
+        max-width: 90%;
+        padding: 0.5rem;
+        width: 40%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 1.3rem;
+        line-height: 1.2;
+    }
+
+    .hero .button {
+        font-size: 1.1rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
