@@ -803,9 +803,20 @@ footer {
         font-size: 0.9rem;
         padding: 0.4rem 0.8rem;
     }
+    
     .tips-container {
         flex-direction: column;
         gap: 15px; /* ajustar espacio si querés */
+    }
+    .mascota-filter {
+        flex: 1;
+        width: 60%;
+    }
+    
+    .main-mascota{
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
     }
 }
 
