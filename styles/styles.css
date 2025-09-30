@@ -55,7 +55,7 @@ main {
     background-color: var(--purple-medium);
     color: var(--text-nav-color);
     width: 100%;
-    position: relative; /* para que el menú se posicione respecto al header */
+    position: relative;
     z-index: 10;
 }
 
@@ -70,18 +70,15 @@ main {
     display: block;
 }
 
-/* Links en escritorio */
-nav div {
+/* Links escritorio */
+.nav-link {
     display: flex;
     gap: 25px;
+    justify-content: flex-end;
     align-items: center;
 }
 
-.nav-link {
-    justify-content: flex-end;
-}
-
-.nav-link a{
+.nav-link a {
     text-decoration: none;
     color: var(--text-nav-color);
     font-weight: 600;
@@ -92,7 +89,7 @@ nav div {
     transition: color 0.4s ease, background-color 0.4s ease;
 }
 
-.nav-link a::before{
+.nav-link a::before {
     content: '';
     position: absolute;
     top: 2px;
@@ -106,7 +103,7 @@ nav div {
     transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-.nav-link a::after{
+.nav-link a::after {
     content: '';
     position: absolute;
     top: 4px;
@@ -125,19 +122,39 @@ nav div {
     color: var(--purple-dark);
 }
 
-.nav-link a:hover::before{
+.nav-link a:hover::before {
     transform: scaleY(1);
     opacity: 1;
 }
 
-.nav-link a:hover::after{
+.nav-link a:hover::after {
     transform: scale(1);
     opacity: 1;
 }
 
 /* --- NAV BAR CHECKBOX (Mobile) --- */
 .nav-toggle {
-    display: none; /* escondemos el checkbox */
+    display: none;
+}
+
+/* Icono hamburguesa */
+.nav-hamburguer {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Barras de hamburguesa */
+.nav-hamburguer span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--text-nav-color);
+    border-radius: 2px;
+    transition: all 0.3s ease;
 }
 
 /* Icono hamburguesa */
@@ -711,75 +728,78 @@ footer {
 }
 
 
-/* --- MEDIA QUERIES --- */
-@media (max-width: 767px) {
-  /* Mostrar hamburguesa en mobile */
-  .nav-hamburguer {
-    display: flex;
-  }
+/* 📱 Teléfonos pequeños (hasta 480px) */
+@media (max-width: 480px) {
+    .nav-logo { display: none; }
 
-  /* Ocultar links por defecto en mobile */
-  .nav-link {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 40%;
-    margin: 0 auto;
-    background-color: var(--purple-medium);
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    min-width: 200px;
-  }
-  /* Links apilados en columna */
-  .nav-link div {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 5px 0;
-  }
-
-  /* Letra más chica en mobile */
-  .nav-link div a {
-    font-size: 18px;
-    padding: 5px;
-    text-align: center;
-  }
-
-  /* Cuando el checkbox está activado => mostrar menú */
-  .nav-toggle:checked + .nav-hamburguer + .nav-link {
-    display: block;
-  }
-
-  /* animación del ícono hamburguesa -> X */
-  .nav-toggle:checked + .nav-hamburguer span:nth-child(1){
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  .nav-toggle:checked + .nav-hamburguer span:nth-child(2){
-    opacity: 0;
-  }
-  .nav-toggle:checked + .nav-hamburguer span:nth-child(3){
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-}
-
-/* Tablets */
-@media (min-width: 768px) and (max-width:1024px){
-
-}
-
- /* --- Extra Mobile < 450px --- */
-@media (max-width: 450px) {
-    .nav-bounds{
-        padding-left: 5px;
-        padding-right: 15px;
+    .nav-hamburguer {
+        display: flex;
+        margin-left: auto;
+        padding: 15px;
     }
-}
 
-@media (min-width: 535px) and (max-width: 599px) {
-    .nav-bounds{
-        padding-left: 35px;
-        padding-right: 35px;
+    .nav-link {
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+        background-color: var(--purple-medium);
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        z-index: 10;
+    }
+
+    .nav-link div {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .nav-link div a { font-size: 18px; }
+
+    .nav-toggle:checked + .nav-hamburguer + .nav-link {
+        display: block;
+    }
+
+    .nav-toggle:checked + .nav-hamburguer span:nth-child(1) {
+        transform: rotate(45deg) translate(5px,5px);
+    }
+    .nav-toggle:checked + .nav-hamburguer span:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-toggle:checked + .nav-hamburguer span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px,-5px);
+    }
+    .hero {
+        height: 40vh;
+    }
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    .hero-overlay {
+        max-width: 90%;
+        padding: 0.5rem;
+        width: 40%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        line-height: 1.2;
+    }
+
+    .hero .button {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
     }
 }
