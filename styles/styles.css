@@ -759,7 +759,9 @@ footer {
         text-align: center;
     }
 
-    .nav-link div a { font-size: 18px; }
+    .nav-link div a { 
+        font-size: 18px; 
+    }
 
     .nav-toggle:checked + .nav-hamburguer + .nav-link {
         display: block;
@@ -801,6 +803,10 @@ footer {
     .hero .button {
         font-size: 0.9rem;
         padding: 0.4rem 0.8rem;
+    }
+    .tips-container {
+        flex-direction: column;
+        gap: 15px; /* ajustar espacio si querés */
     }
 }
 
@@ -856,10 +862,10 @@ footer {
     transform: rotate(-45deg) translate(5px, -5px);
   }
 
-  .hero {
+    .hero {
         height: 80vh;
     }
-        .hero-title {
+    .hero-title {
         font-size: 1.5rem;
     }
     .hero-overlay {
@@ -883,6 +889,10 @@ footer {
     .hero .button {
         font-size: 1.1rem;
         padding: 0.4rem 0.8rem;
+    }
+    .tips-container {
+        flex-direction: column;
+        gap: 15px; /* ajustar espacio si querés */
     }
 }
 
