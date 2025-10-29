@@ -959,3 +959,301 @@ footer {
         margin: 0;
     }
 }
+
+.login-container {
+  background-color: var(--white-bright);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+.login-form h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #eee;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.btn-login {
+  width: 100%;
+  background-color: var(--button-color);
+  color: var(--text-button-color);
+  border: none;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+  background-color: var(--purple-dark);
+}
+
+.register-text {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--text-info);
+}
+
+.register-text a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+
+/* --- MAIN REGISTER --- */
+.main-register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: var(--background-color);
+    padding: 20px;
+}
+
+/* --- CONTAINER DEL FORM --- */
+.register-container {
+    background-color: var(--card-background);
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 40px rgba(0,0,0,0.2);
+}
+
+/* --- FORMULARIO --- */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.register-form h1 {
+    color: var(--text-title-color);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: var(--text-info);
+}
+
+.form-group input {
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color);
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.form-group input:focus {
+    border: 2px solid var(--purple-medium);
+}
+
+/* --- BOTON --- */
+.btn-register {
+    background-color: var(--button-color);
+    color: var(--text-button-color);
+    border: none;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-register:hover {
+    background-color: var(--purple-dark);
+    transform: translateY(-2px);
+}
+
+/* --- TEXTO ADICIONAL --- */
+.login-text {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 10px;
+    color: var(--text-info);
+}
+
+.login-text a {
+    color: var(--purple-medium);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-text a:hover {
+    color: var(--purple-dark);
+    text-decoration: underline;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 480px) {
+    .register-container {
+        padding: 1.5rem 2rem;
+        width: 90%;
+    }
+
+    .register-form h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-group input {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.6rem;
+    }
+
+    .btn-register {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+    }
+}
+
+/* --- CONTACTO --- */
+.contact-container {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.contact-container h2 {
+  color: var(--purple-dark);
+  margin-bottom: 15px;
+}
+
+.contact-container p {
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--purple-dark);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--purple-light);
+  box-shadow: 0 0 5px rgba(133, 94, 255, 0.3);
+}
+
+.btn {
+  background-color: var(--purple-dark);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--purple-light);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .contact-container {
+    margin: 60px 15px;
+    padding: 20px;
+  }
+}
+
+/* --- ESTILOS EXISTENTES DEL NAVBAR --- */
+/* ...todo tu código anterior... */
+
+/* --- BOTONES LOGIN Y REGISTRO --- */
+.nav-link a.login-btn,
+.nav-link a.register-btn {
+    background-color: var(--button-color);
+    color: var(--text-button-color);
+    padding: 6px 12px;
+    border-radius: 5px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link a.login-btn:hover,
+.nav-link a.register-btn:hover {
+    background-color: var(--purple-dark);
+}
+
+/* Ajuste mobile */
+@media (max-width: 480px) {
+    .nav-link div a.login-btn,
+    .nav-link div a.register-btn {
+        margin-left: 0;
+    }
+}
