@@ -424,7 +424,7 @@ main {
     animation-delay: 0.3s;
 }
 
-@keyframes faceInCard{
+@keyframes fadeInCard{
     from {
         opacity: 0;
     }
@@ -460,6 +460,144 @@ main {
     margin-bottom: 0.5;
 }
 
+.mascota-card-info h2 {
+    font-size: 1.5rem;
+    color: var(--purple-medium);
+    margin-bottom: 0.5rem;
+}
+
+.mascota-card-info .button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--purple-medium);
+    color: #fff;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.mascota-card-info .button:hover {
+    background-color: #4a0073;
+}
+
+.mascota-detail-card-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: var(--white-bright);
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+  padding: 20px;
+  gap: 20px;
+  align-items: flex-start;
+  animation: fadeInCard 0.8s ease forwards;
+}
+
+.mascota-img-col {
+  flex: 1 1 250px;
+  min-width: 250px;
+}
+
+.mascota-img-col img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.mascota-img-col img:hover {
+  transform: scale(1.05);
+}
+
+.mascota-info-col {
+  flex: 2 1 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mascota-name {
+  font-size: 2rem;
+  color: var(--purple-medium);
+  margin-bottom: 10px;
+}
+
+.mascota-info-col p {
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+.mascota-story {
+  margin-top: 10px;
+  font-style: italic;
+  color: var(--text-info);
+}
+
+.mascota-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.mascota-buttons .button {
+  padding: 10px 20px;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.mascota-buttons .volver {
+  background-color: var(--cream-lighter);
+  color: var(--purple-medium);
+  border: 1px solid var(--purple-medium);
+}
+
+.mascota-buttons .volver:hover {
+  background-color: var(--purple-medium);
+  color: #fff;
+}
+
+.mascota-buttons .adoptar {
+  background-color: var(--purple-medium);
+  color: #fff;
+}
+
+.mascota-buttons .adoptar:hover {
+  background-color: #4a0073;
+}
+
+.mascota-buttons .favoritos {
+  background-color: #ff6b81;
+  color: #fff;
+  border: none;
+}
+
+.mascota-buttons .favoritos:hover {
+  background-color: #ff3b58;
+}
+
+/* Animación fade-in */
+@keyframes fadeInCard{
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.mascota-info-col p {
+    font-size: 1.1rem;
+    margin: 5px 0;
+    line-height: 1.4;
+    color: var(--text-info);
+}
+
+.mascota-info-col p strong {
+    font-weight: 600;
+    color: var(--purple-medium);
+}
 /* ===========================
    SECCION: HERO
 =========================== */
@@ -1311,4 +1449,3 @@ footer {
         margin: 0;
     }
 }
-
