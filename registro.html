@@ -14,55 +14,60 @@
             <div class="nav-logo">
                 <img src="./img/Logo-nombre-claro.png" alt="Logo" width="100">
             </div>
-            <!-- Checkbox para el toggle -->
-            <input type="checkbox" id="nav-toggle" class="nav-toggle">
 
-            <!-- Botón hamburguesa -->
-            <label for="nav-toggle" class="nav-hamburguer">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-            
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-hamburguer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
             <nav class="nav-link">
-                <div>
+                <div class="nav-left">
                     <a href="index.html">Inicio</a>
                     <a href="comunidad.html#success-stories">Casos de Éxito</a>
                     <a href="mascotas.html">Adopta</a>
                     <a href="comunidad.html">Comunidad & Recursos</a>
+                </div>
+                <div class="nav-right">
+                    <a href="login.html" class="button btn-login">Login</a>
+                    <a href="register.html" class="button btn-register">Registro</a>
                 </div>
             </nav>
         </div>
     </header>
 
     <main class="main-register">
-  <div class="register-container">
-    <form class="register-form">
-      <h1>Registro</h1>
-      <div class="form-group">
-        <label for="username">Usuario</label>
-        <input type="text" id="username" name="username" placeholder="Tu usuario">
+      <div class="register-container">
+        <form class="register-form">
+          <h1>Registro</h1>
+          <div class="form-group">
+            <label for="username">Usuario</label>
+            <input type="text" id="username" name="username" placeholder="Tu usuario">
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="Tu correo">
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" placeholder="Tu contraseña">
+          </div>
+          
+          <div class="form-group">
+            <label for="confirm-password">Confirmar Contraseña</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Repite tu contraseña">
+          </div>
+          <button type="submit" class="btn-register">Registrarse</button>
+            <p class="login-text">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+        </form>
       </div>
-      <div class="form-group">
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" name="email" placeholder="Tu correo">
-      </div>
-      <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password" placeholder="Tu contraseña">
-      </div>
-      <div class="form-group">
-        <label for="confirm-password">Confirmar Contraseña</label>
-        <input type="password" id="confirm-password" name="confirm-password" placeholder="Repite tu contraseña">
-      </div>
-      <button type="submit" class="btn-register">Registrarse</button>
-      <p class="login-text">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
-    </form>
-  </div>
-</main>
+    </main>
 
     <footer>
-            <p>© 2025 Mi Página Web</p>
+      <p>© 2025 Mi Página Web</p>
     </footer>
 </body>
 </html>

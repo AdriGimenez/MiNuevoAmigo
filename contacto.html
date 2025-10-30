@@ -9,56 +9,58 @@
     <title>Inicio</title>
 </head>
 <body>
-    <header class="nav-header">
+     <header class="nav-header">
         <div class="nav-bounds">
             <div class="nav-logo">
                 <img src="./img/Logo-nombre-claro.png" alt="Logo" width="100">
             </div>
-            <!-- Checkbox para el toggle -->
-            <input type="checkbox" id="nav-toggle" class="nav-toggle">
 
-            <!-- Botón hamburguesa -->
-            <label for="nav-toggle" class="nav-hamburguer">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-            
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-hamburguer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
             <nav class="nav-link">
-                <div>
+                <div class="nav-left">
                     <a href="index.html">Inicio</a>
                     <a href="comunidad.html#success-stories">Casos de Éxito</a>
                     <a href="mascotas.html">Adopta</a>
                     <a href="comunidad.html">Comunidad & Recursos</a>
                 </div>
+                <div class="nav-right">
+                    <a href="login.html" class="button btn-login">Login</a>
+                    <a href="register.html" class="button btn-register">Registro</a>
+                </div>
             </nav>
         </div>
     </header>
         <main class="contact-container">
-    <h2>Contacto</h2>
-    <p>¿Tenés dudas o querés colaborar con nosotros? Completá el formulario y te responderemos pronto 🐶💌</p>
+          <h2>Contacto</h2>
+          <p>¿Tenés dudas o querés colaborar con nosotros? Completá el formulario y te responderemos pronto 🐶💌</p>
 
-    <form class="contact-form">
-      <div class="form-group">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-      </div>
+          <form class="contact-form">
+            <div class="form-group">
+              <label for="nombre">Nombre:</label>
+              <input type="text" id="nombre" name="nombre" required>
+            </div>
 
-      <div class="form-group">
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email" required>
-      </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico:</label>
+              <input type="email" id="email" name="email" required>
+            </div>
 
-      <div class="form-group">
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-      </div>
+            <div class="form-group">
+              <label for="mensaje">Mensaje:</label>
+              <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+            </div>
 
-      <button type="submit" class="btn">Enviar</button>
-    </form>
-  </main>
+            <button type="submit" class="btn">Enviar</button>
+          </form>
+        </main>
     <footer>
-            <p>© 2025 Mi Página Web</p>
+      <p>© 2025 Mi Página Web</p>
     </footer>
 </body>
 </html>
