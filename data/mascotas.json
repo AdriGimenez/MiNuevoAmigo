@@ -1,0 +1,55 @@
+[
+  {
+    "id": 1,
+    "name": "Brisa",
+    "age": "2 años",
+    "category": "Perro",
+    "breed": "Cocker",
+    "story": "Brisa es una perrita muy cariñosa, juguetona y activa. Ama ir al parque a correr.",
+    "image": "./img/Brisa.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Mimi",
+    "age": "3 años",
+    "breed": "Cruza Beagle",
+    "story": "Mimi es una perrita un poco gruñosa pero con mucho amor para dar.",
+    "image": "./img/Mimi.jpeg"
+  },
+  {
+    "id": 3,
+    "name": "Kiro",
+    "age": "5 años",
+    "category": "Gato",
+    "breed": "Egipcio",
+    "story": "Kiro es un gatito macho, que ama hacer lo que quiere. Ama que le den mimos.",
+    "image": "./img/Kiro.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Baxter",
+    "age": "7 años",
+    "category": "Perro",
+    "breed": "Salchicha-Caniche",
+    "story": "Baxter es un perrito macho adulto, que ama dar paseos largos. Ama correr.",
+    "image":"./img/Baxter.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Dulce",
+    "age": "6 años",
+    "category": "Perro",
+    "breed": "Caniche",
+    "story": "Dulce es una perria muy cariñosa y tranquila. Ama mucho que le rasquen la panzita.",
+    "image": "./img/Dulce.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Cira",
+    "age": "4 años",
+    "category": "Perro",
+    "breed": "Caniche",
+    "story": "Cira es una perrita hembra que sufrio mucho, aun tiene un poco de miedo, pero tiene mucho amor para dar",
+    "image": "./img/Cira.jpg"
+  }
+]
