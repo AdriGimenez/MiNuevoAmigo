@@ -6,7 +6,9 @@
     "category": "Perro",
     "breed": "Cocker",
     "story": "Brisa es una perrita muy cariñosa, juguetona y activa. Ama ir al parque a correr.",
-    "image": "./img/Brisa.jpg"
+    "image": "./img/Brisa.jpg",
+    "size": "Mediano",
+    "gender": "Hembra"
   },
   {
     "id": 2,
@@ -14,7 +16,9 @@
     "age": "3 años",
     "breed": "Cruza Beagle",
     "story": "Mimi es una perrita un poco gruñosa pero con mucho amor para dar.",
-    "image": "./img/Mimi.jpeg"
+    "image": "./img/Mimi.jpeg",
+    "size": "Chico",
+    "gender": "Hembra"
   },
   {
     "id": 3,
@@ -23,7 +27,9 @@
     "category": "Gato",
     "breed": "Egipcio",
     "story": "Kiro es un gatito macho, que ama hacer lo que quiere. Ama que le den mimos.",
-    "image": "./img/Kiro.jpg"
+    "image": "./img/Kiro.jpg",
+    "size": "Chico",
+    "gender": "Macho"
   },
   {
     "id": 4,
@@ -32,7 +38,9 @@
     "category": "Perro",
     "breed": "Salchicha-Caniche",
     "story": "Baxter es un perrito macho adulto, que ama dar paseos largos. Ama correr.",
-    "image":"./img/Baxter.jpg"
+    "image":"./img/Baxter.jpg",
+    "size": "Mediano",
+    "gender": "HembraMacho"
   },
   {
     "id": 5,
@@ -41,7 +49,9 @@
     "category": "Perro",
     "breed": "Caniche",
     "story": "Dulce es una perrita muy cariñosa y tranquila. Ama mucho que le rasquen la panzita.",
-    "image": "./img/Dulce.jpg"
+    "image": "./img/Dulce.jpg",
+    "size": "Chico",
+    "gender": "Hembra"
   },
   {
     "id": 6,
@@ -50,6 +60,8 @@
     "category": "Perro",
     "breed": "Caniche",
     "story": "Cira es una perrita hembra que sufrio mucho, aun tiene un poco de miedo, pero tiene mucho amor para dar",
-    "image": "./img/Cira.jpg"
+    "image": "./img/Cira.jpg",
+    "size": "Grande",
+    "gender": "Hembra"
   }
 ]
