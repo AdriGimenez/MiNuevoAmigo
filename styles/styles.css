@@ -257,12 +257,14 @@ main {
 }
 
 .mascota-container {
-    flex: 1;
-    display: flex;
+     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center;  /* centra horizontalmente las tarjetas */
     gap: 20px;
+    padding: 0 20px 80px 20px;  /* padding-top 20px, padding-bottom 80px */
+    min-height: 400px;           /* ajusta según tu diseño */
 }
+
 
 .mascota-like{
     width: 18px;
@@ -1178,6 +1180,7 @@ footer {
     justify-content: flex-start;
     width: calc(100% - 50px);
     padding-left: 50px;
+    margin-top: 50px;
 }
 
 /* ===============================
