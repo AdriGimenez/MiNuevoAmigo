@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           <p class="mascota-story">${mascota.story}</p>
           <div class="mascota-buttons">
             <a href="mascotas.html" class="button volver">Volver</a>
-            <a href="adoption.html?id=${mascota.id}" class="button adoptar">Adoptar</a>
+            <a href="adopcion.html?id=${mascota.id}" class="button adoptar">Adoptar</a>
             <button class="button favoritos">Agregar a Favoritos</button>
           </div>
         </div>

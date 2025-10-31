@@ -688,6 +688,152 @@ main {
 }
 
 /* =======================================
+   FORMULARIO DE ADOPCIÓN + MASCOTA
+======================================= */
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.adoption-main {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* hace que ambas columnas tengan la misma altura */
+  gap: 3rem;
+  padding: 3rem;
+  flex-wrap: wrap;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* --- TARJETA DE LA MASCOTA --- */
+.adoption-mascota-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 380px;
+  text-align: left;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  flex: 1; /* se estira igual que el formulario */
+}
+
+.adoption-mascota-img img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.adoption-mascota-details {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  flex: 1;
+  text-align: left;
+}
+
+.adoption-mascota-details h3 {
+  color: var(--purple-dark);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.adoption-mascota-details p {
+  color: var(--purple-medium);
+  margin-bottom: 0.5rem;
+}
+
+.adoption-mascota-details p strong {
+  color: inherit;
+  font-weight: 600;
+}
+
+.story {
+  font-style: italic;
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+/* --- FORMULARIO DE ADOPCIÓN --- */
+.adoption-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra horizontalmente los elementos */
+  justify-content: center; /* centra verticalmente si hay espacio */
+  gap: 1rem;
+  width: 380px;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  margin: 0 auto; /* centra el formulario dentro del contenedor */
+  flex: 1; /* se estira igual que la tarjeta */
+}
+
+.adoption-form h2 {
+  text-align: center;
+  color: var(--purple-dark);
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.adoption-form label {
+  align-self: flex-start; /* mantiene las etiquetas alineadas a la izquierda */
+  font-weight: 600;
+  color: var(--purple-dark);
+}
+
+.adoption-form input,
+.adoption-form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.adoption-form input:focus,
+.adoption-form textarea:focus {
+  border-color: var(--purple-light);
+  box-shadow: 0 0 5px rgba(133, 94, 255, 0.3);
+}
+
+.adoption-form button {
+  background-color: var(--purple-dark);
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease;
+  width: 100%; /* hace que el botón coincida con el ancho del resto */
+}
+
+.adoption-form button:hover {
+  background-color: var(--purple-light);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .adoption-main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .adoption-form,
+  .adoption-mascota-card {
+    width: 90%;
+    flex: unset; /* no hace stretch en móvil */
+  }
+}
+
+/* =======================================
    FORMULARIOS (Login, Registro, Contacto)
 ======================================= */
 .login-container {
