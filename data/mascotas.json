@@ -14,6 +14,7 @@
     "id": 2,
     "name": "Mimi",
     "age": "3 años",
+    "category": "Perro",
     "breed": "Cruza Beagle",
     "story": "Mimi es una perrita un poco gruñosa pero con mucho amor para dar.",
     "image": "./img/Mimi.jpeg",

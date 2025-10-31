@@ -264,36 +264,6 @@ main {
     gap: 20px;
 }
 
-.mascota-brisa .mascota-img,
-.mascota-brisa .mascota-img-hover{
-    background-image: url('../img/Brisa.jpg');
-}
-
-.mascota-mimi .mascota-img,
-.mascota-mimi .mascota-img-hover{
-    background-image: url('../img/Mimi.jpeg');
-}
-
-.mascota-dulce .mascota-img,
-.mascota-dulce .mascota-img-hover{
-    background-image: url('../img/Dulce.jpg');
-}
-
-.mascota-baxter .mascota-img,
-.mascota-baxter .mascota-img-hover{
-    background-image: url('../img/Baxter.jpg');
-}
-
-.mascota-kiro .mascota-img,
-.mascota-kiro .mascota-img-hover{
-    background-image: url('../img/Kiro.jpg');
-}
-
-.mascota-cira .mascota-img,
-.mascota-cira .mascota-img-hover{
-    background-image: url('../img/Cira.jpg');
-}
-
 .mascota-like{
     width: 18px;
 }
