@@ -1294,6 +1294,32 @@ footer {
 .mascota-filter li:hover {
     color: var(--purple-medium);
 }
+/* ===============================
+   BUSQUEDA y FILTROS
+=============================== */
+.busqueda {
+  margin: 15px 0 15px 50px;
+}
+
+.buscador {
+  width: 80%;
+  max-width: 500px;
+  padding: 13px 16px;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #fff url("https://cdn-icons-png.flaticon.com/512/622/622669.png") no-repeat 15px center;
+  background-size: 20px;
+  padding-left: 45px;
+}
+
+.buscador:focus {
+  border-color: #6A0DAD;
+  box-shadow: 0 0 10px rgba(106, 13, 173, 0.3);
+}
+
 
 /* ===============================
    RESPONSIVE (Media Queries)
