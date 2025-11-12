@@ -265,11 +265,6 @@ main {
     min-height: 400px;           /* ajusta según tu diseño */
 }
 
-
-.mascota-like{
-    width: 18px;
-}
-
 .mascota-img{
     visibility: hidden;
     background-size: cover;
@@ -1318,6 +1313,55 @@ footer {
 .buscador:focus {
   border-color: #6A0DAD;
   box-shadow: 0 0 10px rgba(106, 13, 173, 0.3);
+}
+
+/* ============================
+   BOTON FAVORITO
+============================ */
+
+.mascota-like {
+  position: absolute;
+  top: 10px;              /* ajustado para mejor centrado */
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.mascota-like svg {
+  width: 22px;           /* tamaño más equilibrado */
+  height: 22px;
+}
+
+.mascota-like svg path {
+  fill: none;
+  stroke: #6A0DAD;
+  stroke-width: 1.5;     /* trazo más fino */
+  transition: all 0.3s ease;
+}
+
+.mascota-like:hover {
+  transform: scale(1.1);
+}
+
+/* Cuando está clickeado */
+.mascota-like.activo {
+  background-color: #6A0DAD;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(106, 13, 173, 0.6); /* ✨ Glow opcional */
+}
+
+.mascota-like.activo svg path {
+  fill: #fff;
+  stroke: #fff;
+  stroke-width: 1.2;
 }
 
 
