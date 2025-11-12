@@ -62,9 +62,21 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
       });
     });
-
+    // 🔍 Buscador (nuevo)
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+      searchInput.addEventListener("input", (e) => {
+        const term = e.target.value.toLowerCase();
+        const filtradas = mascotasData.filter(m =>
+          m.name.toLowerCase().includes(term) ||
+          m.breed.toLowerCase().includes(term)
+        );
+        mostrarMascotas(filtradas);
+      });
+    }
   } catch (error) {
     console.error("Error al cargar las mascotas:", error);
     container.innerHTML = `<p>Error al cargar las mascotas.</p>`;
   }
 });
+
