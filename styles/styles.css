@@ -71,7 +71,6 @@ body {
     display: block;
 }
 
-/* Links escritorio */
 .nav-link {
     display: flex;
     justify-content: space-between;
@@ -144,12 +143,10 @@ body {
     opacity: 1;
 }
 
-/* --- NAV BAR CHECKBOX (Mobile) --- */
 .nav-toggle {
     display: none;
 }
 
-/* Icono hamburguesa */
 .nav-hamburguer {
     display: none;
     flex-direction: column;
@@ -159,7 +156,6 @@ body {
     cursor: pointer;
 }
 
-/* Barras de hamburguesa */
 .nav-hamburguer span {
     display: block;
     height: 3px;
@@ -169,9 +165,8 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Icono hamburguesa */
 .nav-hamburguer {
-    display: none; /* solo aparece en mobile */
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     width: 25px;
@@ -202,7 +197,7 @@ body {
 .nav-link a.register-btn:hover {
     background-color: var(--purple-dark);
 }
-/* --- NAV BAR MOBILE (Hamburguesa) --- */
+
 @media (max-width: 768px) {
     .nav-link {
         flex-direction: column;
@@ -259,10 +254,10 @@ main {
 .mascota-container {
      display: flex;
     flex-wrap: wrap;
-    justify-content: center;  /* centra horizontalmente las tarjetas */
+    justify-content: center;
     gap: 20px;
-    padding: 0 20px 80px 20px;  /* padding-top 20px, padding-bottom 80px */
-    min-height: 400px;           /* ajusta según tu diseño */
+    padding: 0 20px 80px 20px; 
+    min-height: 400px;
 }
 
 .mascota-img{
@@ -586,7 +581,6 @@ main {
 }
 
 .hero-overlay {
-    /*background-color: rgb(0,0,0,0.4);*/
     padding: 2rem;
     border-radius: 12px;
     max-width: 40%;
@@ -604,7 +598,7 @@ main {
 
 .hero-title {
   font-size: 3rem;
-  color: var(--purple-medium); /* relleno morado */
+  color: var(--purple-medium);
   text-shadow: 
     1px 1px 0 #ffffff,
    -1px 1px 0 #ffffff,
@@ -662,7 +656,7 @@ main {
 .adoption-main {
   display: flex;
   justify-content: center;
-  align-items: stretch; /* hace que ambas columnas tengan la misma altura */
+  align-items: stretch;
   gap: 3rem;
   padding: 3rem;
   flex-wrap: wrap;
@@ -682,7 +676,7 @@ main {
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   padding: 1.5rem;
-  flex: 1; /* se estira igual que el formulario */
+  flex: 1;
 }
 
 .adoption-mascota-img img {
@@ -727,16 +721,16 @@ main {
 .adoption-form {
   display: flex;
   flex-direction: column;
-  align-items: center; /* centra horizontalmente los elementos */
-  justify-content: center; /* centra verticalmente si hay espacio */
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
   width: 380px;
   background-color: #fff;
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  margin: 0 auto; /* centra el formulario dentro del contenedor */
-  flex: 1; /* se estira igual que la tarjeta */
+  margin: 0 auto;
+  flex: 1;
 }
 
 .adoption-form h2 {
@@ -747,7 +741,7 @@ main {
 }
 
 .adoption-form label {
-  align-self: flex-start; /* mantiene las etiquetas alineadas a la izquierda */
+  align-self: flex-start;
   font-weight: 600;
   color: var(--purple-dark);
 }
@@ -779,14 +773,13 @@ main {
   font-weight: 700;
   letter-spacing: 0.5px;
   transition: background-color 0.3s ease;
-  width: 100%; /* hace que el botón coincida con el ancho del resto */
+  width: 100%;
 }
 
 .adoption-form button:hover {
   background-color: var(--purple-light);
 }
 
-/* --- RESPONSIVE --- */
 @media (max-width: 900px) {
   .adoption-main {
     flex-direction: column;
@@ -796,7 +789,7 @@ main {
   .adoption-form,
   .adoption-mascota-card {
     width: 90%;
-    flex: unset; /* no hace stretch en móvil */
+    flex: unset;
   }
 }
 
@@ -875,7 +868,6 @@ input:focus {
   text-decoration: underline;
 }
 
-/* --- MAIN REGISTER --- */
 .main-register {
     display: flex;
     justify-content: center;
@@ -885,7 +877,6 @@ input:focus {
     padding: 20px;
 }
 
-/* --- CONTAINER DEL FORM --- */
 .register-container {
     background-color: var(--card-background);
     padding: 2rem 3rem;
@@ -901,7 +892,6 @@ input:focus {
     box-shadow: 0 25px 40px rgba(0,0,0,0.2);
 }
 
-/* --- FORMULARIO --- */
 .register-form {
     display: flex;
     flex-direction: column;
@@ -940,7 +930,6 @@ input:focus {
     border: 2px solid var(--purple-medium);
 }
 
-/* --- BOTON --- */
 .btn-register {
     background-color: var(--button-color);
     color: var(--text-button-color);
@@ -957,7 +946,6 @@ input:focus {
     transform: translateY(-2px);
 }
 
-/* --- TEXTO ADICIONAL --- */
 .login-text {
     font-size: 0.9rem;
     text-align: center;
@@ -1091,7 +1079,6 @@ input:focus {
     box-shadow: 0 25px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* --- SLIDE 2 (INFO FIJA) --- */
 .slide2 {
     position: absolute;
     bottom: 0;
@@ -1119,7 +1106,6 @@ input:focus {
     color: #555;
 }
 
-/* --- SLIDE 1 (ICONO + BOTON) --- */
 .slide1 {
     position: absolute;
     width: 100%;
@@ -1158,7 +1144,6 @@ input:focus {
     transform: translate(-2px);
 }
 
-/* --- HOVER --- */
 .card:hover .slide1 {
     transform: translateY(0);
 }
@@ -1321,7 +1306,7 @@ footer {
 
 .mascota-like {
   position: absolute;
-  top: 10px;              /* ajustado para mejor centrado */
+  top: 10px;
   right: 12px;
   background: none;
   border: none;
@@ -1336,14 +1321,14 @@ footer {
 }
 
 .mascota-like svg {
-  width: 22px;           /* tamaño más equilibrado */
+  width: 22px;
   height: 22px;
 }
 
 .mascota-like svg path {
   fill: none;
   stroke: #6A0DAD;
-  stroke-width: 1.5;     /* trazo más fino */
+  stroke-width: 1.5;
   transition: all 0.3s ease;
 }
 
@@ -1351,17 +1336,50 @@ footer {
   transform: scale(1.1);
 }
 
-/* Cuando está clickeado */
 .mascota-like.activo {
   background-color: #6A0DAD;
   border-radius: 50%;
-  box-shadow: 0 0 6px rgba(106, 13, 173, 0.6); /* ✨ Glow opcional */
+  box-shadow: 0 0 6px rgba(106, 13, 173, 0.6);
 }
 
 .mascota-like.activo svg path {
   fill: #fff;
   stroke: #fff;
   stroke-width: 1.2;
+}
+
+/* ===============================
+   FAVORITOS
+=============================== */
+
+.message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 40px;
+}
+
+.header-fav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+}
+
+.header-fav h1 {
+  color: #6A0DAD;
+  font-size: 1.8rem;
+}
+
+.header-fav .back {
+  color: #6A0DAD;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+header .back:hover {
+  color: #4B0082;
 }
 
 
@@ -1459,7 +1477,7 @@ footer {
 
     .tips-container {
         flex-direction: column;
-        gap: 15px; /* ajustar espacio si querés */
+        gap: 15px;
     }
     .mascota-filter {
         flex: 1;
@@ -1505,12 +1523,10 @@ footer {
 
 /* 📱 Teléfonos normales (481px a 767px) */
 @media (min-width: 481px) and (max-width: 767px) {
-  /* Mostrar hamburguesa en mobile */
   .nav-hamburguer {
     display: flex;
   }
 
-  /* Ocultar links por defecto en mobile */
   .nav-link {
     display: none;
     position: absolute;
@@ -1524,7 +1540,7 @@ footer {
     box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     min-width: 200px;
   }
-  /* Links apilados en columna */
+
   .nav-link div {
     display: flex;
     flex-direction: column;
@@ -1532,19 +1548,16 @@ footer {
     padding: 5px 0;
   }
 
-  /* Letra más chica en mobile */
   .nav-link div a {
     font-size: 18px;
     padding: 5px;
     text-align: center;
   }
 
-  /* Cuando el checkbox está activado => mostrar menú */
   .nav-toggle:checked + .nav-hamburguer + .nav-link {
     display: block;
   }
 
-  /* animación del ícono hamburguesa -> X */
   .nav-toggle:checked + .nav-hamburguer span:nth-child(1){
     transform: rotate(45deg) translate(5px, 5px);
   }
@@ -1585,7 +1598,7 @@ footer {
     }
     .tips-container {
         flex-direction: column;
-        gap: 15px; /* ajustar espacio si querés */
+        gap: 15px;
     }
     .mascota-filter {
         flex: 1;
