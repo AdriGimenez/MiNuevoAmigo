@@ -5,7 +5,7 @@
     "age": "2 años",
     "category": "Perro",
     "breed": "Cocker",
-    "story": "Brisa es una perrita muy cariñosa, juguetona y activa. Ama ir al parque a correr.",
+    "story": "Brisa es una perrita muy juguetona, que ama ir al parque y dar paseos largos. Adora que le rasquen la panza y siempre mueve la cola cuando alguien se le acerca con cariño.",
     "image": "./img/Brisa.jpg",
     "size": "Mediano",
     "gender": "Hembra"
@@ -27,7 +27,7 @@
     "age": "5 años",
     "category": "Gato",
     "breed": "Egipcio",
-    "story": "Kiro es un gatito macho, que ama hacer lo que quiere. Ama que le den mimos.",
+    "story": "Kiro es un gato curioso y elegante, al que le gusta explorar cada rincón de la casa. Aunque a veces parece distante, disfruta mucho de las caricias y del sol que entra por la ventana.",
     "image": "./img/Kiro.jpg",
     "size": "Chico",
     "gender": "Macho"
@@ -38,7 +38,7 @@
     "age": "7 años",
     "category": "Perro",
     "breed": "Salchicha-Caniche",
-    "story": "Baxter es un perrito macho adulto, que ama dar paseos largos. Ama correr.",
+    "story": "Baxter es tranquilo y paciente, un compañero fiel que disfruta de las siestas largas y de mirar por la ventana. Tiene un corazón enorme y siempre está dispuesto a acompañarte.",
     "image":"./img/Baxter.jpg",
     "size": "Mediano",
     "gender": "HembraMacho"
@@ -49,7 +49,7 @@
     "age": "6 años",
     "category": "Perro",
     "breed": "Caniche",
-    "story": "Dulce es una perrita muy cariñosa y tranquila. Ama mucho que le rasquen la panzita.",
+    "story": "DDulce es una compañera tranquila y amorosa, a la que le encanta descansar al sol y recibir caricias suaves. Su mirada refleja todo el amor que está lista para dar.",
     "image": "./img/Dulce.jpg",
     "size": "Chico",
     "gender": "Hembra"
@@ -60,9 +60,42 @@
     "age": "4 años",
     "category": "Perro",
     "breed": "Caniche",
-    "story": "Cira es una perrita hembra que sufrio mucho, aun tiene un poco de miedo, pero tiene mucho amor para dar",
+    "story": "Cira es una perrita cariñosa y muy sociable. Le encanta estar acompañada y se lleva bien con todos. Siempre busca un mimo o un abrazo para demostrar su afecto.",
     "image": "./img/Cira.jpg",
     "size": "Grande",
+    "gender": "Hembra"
+  },
+  {
+    "id": 7,
+    "name": "Patin",
+    "age": "2 años",
+    "category": "Otros",
+    "bread": "Pequines",
+    "story": "Patin es un pato simpático y sociable, que adora chapotear en el agua y seguir a la gente por el jardín. Siempre está atento y parece tener su propia conversación.",
+    "image": "./img/Patin.jpg",
+    "size": "Mediano",
+    "gender": "Macho"
+  },
+  {
+    "id": 8,
+    "name": "Coco",
+    "age": "1 año",
+    "category": "Gato",
+    "bread": "Main Coon",
+    "story": "Coco es una gatita juguetona y curiosa, que nunca se cansa de perseguir pelotitas o esconderse en cajas. Es muy dulce y le encanta dormirse cerca de quien confía.",
+    "image": "./img/Coco.jpg",
+    "size": "Chico",
+    "gender": "Hembra"
+  },
+  {
+    "id": 9,
+    "name": "TriTri",
+    "age":"1 año",
+    "category": "Gato",
+    "bread": "Atigrado",
+    "story": "Tri Tri es una gatita especial y muy valiente. Perdió una patita cuando era pequeña, pero eso no la detiene: juega, corre y se hace querer con su ternura y energía.",
+    "image": "./img/TriTri.jpeg",
+    "size": "Chico",
     "gender": "Hembra"
   }
 ]
