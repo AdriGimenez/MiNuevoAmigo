@@ -1351,37 +1351,45 @@ footer {
 /* ===============================
    FAVORITOS
 =============================== */
+.favoritos-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 70vh;
+      color: #6A0DAD;
+    }
 
-.message {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #666;
-  margin-top: 40px;
-}
+    .favoritos-empty .patas {
+      font-size: 30px;
+      color: #6A0DAD;
+    }
 
-.header-fav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 30px;
-}
+    .favoritos-empty .mensaje {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
 
-.header-fav h1 {
-  color: #6A0DAD;
-  font-size: 1.8rem;
-}
+    .favoritos-empty .submensaje {
+      color: #8E44AD;
+      font-size: 1rem;
+    }
 
-.header-fav .back {
-  color: #6A0DAD;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
+    .favoritos-empty .boton-ver {
+      background-color: #6A0DAD;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
 
-header .back:hover {
-  color: #4B0082;
-}
-
+    .favoritos-empty .boton-ver:hover {
+      background-color: #4a0a8a;
+      transform: scale(1.05);
+    }
 
 /* ===============================
    RESPONSIVE (Media Queries)
