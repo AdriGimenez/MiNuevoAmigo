@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    // Insertar contenido dinámico en la página
     const container = document.getElementById("mascotaDetailContainer");
     container.innerHTML = `
       <div class="mascota-detail-card-horizontal">

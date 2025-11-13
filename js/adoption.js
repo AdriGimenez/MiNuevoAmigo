@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Error al cargar la mascota:", error);
   }
 
-  // Evitar que el formulario recargue la página
+
   const form = document.getElementById("adoption-form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();

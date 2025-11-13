@@ -10,18 +10,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     const response = await fetch("./data/mascotas.json");
     mascotasData = await response.json();
 
-    // Obtener categorías únicas del JSON
     const categorias = [...new Set(mascotasData.map(m => m.category))];
     categorias.unshift("Todos");
 
-    // Generar los filtros en el HTML
     categorias.forEach(categoria => {
       const li = document.createElement("li");
       li.textContent = categoria;
       filterList.appendChild(li);
     });
 
-    // --- FUNCIÓN PARA MOSTRAR MASCOTAS ---
     const mostrarMascotas = (mascotas) => {
       container.innerHTML = "";
       mascotas.forEach(mascota => {
@@ -54,7 +51,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       agregarEventosFavoritos();
     };
 
-    // --- FUNCIÓN PARA AGREGAR EVENTOS A LOS CORAZONES ---
     const agregarEventosFavoritos = () => {
       const corazones = document.querySelectorAll(".mascota-like");
       corazones.forEach(icono => {
@@ -66,7 +62,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     };
 
-    // --- FUNCIÓN PARA GUARDAR/QUITAR FAVORITOS ---
     const toggleFavorito = (id) => {
       if (favoritos.includes(id)) {
         favoritos = favoritos.filter(f => f !== id);
@@ -76,10 +71,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       localStorage.setItem("favoritos", JSON.stringify(favoritos));
     };
 
-    // Mostrar todas al inicio
     mostrarMascotas(mascotasData);
 
-    // --- FILTRO POR CATEGORÍA ---
     const filterItems = document.querySelectorAll(".mascota-filter li");
     filterItems.forEach(item => {
       item.addEventListener("click", () => {
@@ -93,7 +86,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     });
 
-    // --- BUSCADOR ---
     if (searchInput) {
       searchInput.addEventListener("input", (e) => {
         const term = e.target.value.toLowerCase();

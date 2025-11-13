@@ -1,7 +1,4 @@
-// js/loadComponents.js
-
 document.addEventListener("DOMContentLoaded", () => {
-  // Cargar navbar
   fetch("navbar.html")
     .then(response => response.text())
     .then(data => {
@@ -9,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(error => console.error("Error al cargar el navbar:", error));
 
-  // Cargar footer
   fetch("footer.html")
     .then(response => response.text())
     .then(data => {
