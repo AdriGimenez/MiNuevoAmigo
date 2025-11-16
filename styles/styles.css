@@ -50,7 +50,6 @@ body {
    NAVBAR
 =============================== */
 
-/* --- NAV BAR GENERAL --- */
 .nav-header {
     height: 60px;
     background-color: var(--purple-medium);
@@ -198,40 +197,6 @@ body {
     background-color: var(--purple-dark);
 }
 
-@media (max-width: 768px) {
-    .nav-link {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        gap: 10px;
-        background-color: var(--purple-medium);
-        position: absolute;
-        top: 60px;
-        left: 0;
-        padding: 10px 20px;
-        display: none;
-    }
-
-    #nav-toggle:checked + .nav-hamburguer + .nav-link {
-        display: flex;
-    }
-
-    .nav-left, .nav-right {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .nav-left a, .nav-right a {
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-    }
-    .nav-left{
-        margin-left: 0;
-        flex-direction: column;
-    }
-}
-
 /* ===============================
    SECCIONES PRINCIPALES
 =============================== */
@@ -240,6 +205,7 @@ main {
     padding: 0px;
     background-color: var(--background-color);
 }
+
 /* ===============================
    SECCIÓN: MASCOTAS
 =============================== */
@@ -544,7 +510,6 @@ main {
   background-color: #ff3b58;
 }
 
-/* Animación fade-in */
 @keyframes fadeInCard{
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -652,7 +617,6 @@ main {
    FORMULARIO DE ADOPCIÓN + MASCOTA
 ======================================= */
 
-/* --- CONTENEDOR PRINCIPAL --- */
 .adoption-main {
   display: flex;
   justify-content: center;
@@ -665,7 +629,6 @@ main {
   font-family: 'Montserrat', sans-serif;
 }
 
-/* --- TARJETA DE LA MASCOTA --- */
 .adoption-mascota-card {
   display: flex;
   flex-direction: column;
@@ -717,7 +680,6 @@ main {
   margin-top: 0.5rem;
 }
 
-/* --- FORMULARIO DE ADOPCIÓN --- */
 .adoption-form {
   display: flex;
   flex-direction: column;
@@ -778,19 +740,6 @@ main {
 
 .adoption-form button:hover {
   background-color: var(--purple-light);
-}
-
-@media (max-width: 900px) {
-  .adoption-main {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .adoption-form,
-  .adoption-mascota-card {
-    width: 90%;
-    flex: unset;
-  }
 }
 
 /* =======================================
@@ -1238,66 +1187,6 @@ footer {
 .case p {
     flex: 1;
 }
-/* ===============================
-   FILTROS
-=============================== 
-.mascota-filter {
-    background: #f9f9f9;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-    margin-left: 25px;
-}
-
-.mascota-filter h2 {
-    font-size: 1rem;
-    margin-bottom: 10px;
-    color: var(--purple-dark);
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
-}
-
-.mascota-filter ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.mascota-filter li {
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-    cursor: pointer;
-    transition: color 0.3 ease;
-}
-
-.mascota-filter li:hover {
-    color: var(--purple-medium);
-}*/
-/* ===============================
-   BUSQUEDA y FILTROS
-=============================== */
-.busqueda {
-  margin: 15px 0 15px 50px;
-}
-
-.buscador {
-  width: 80%;
-  max-width: 500px;
-  padding: 13px 16px;
-  border: 2px solid #ccc;
-  border-radius: 15px;
-  font-size: 16px;
-  outline: none;
-  transition: all 0.3s ease;
-  background: #fff url("https://cdn-icons-png.flaticon.com/512/622/622669.png") no-repeat 15px center;
-  background-size: 20px;
-  padding-left: 45px;
-}
-
-.buscador:focus {
-  border-color: #6A0DAD;
-  box-shadow: 0 0 10px rgba(106, 13, 173, 0.3);
-}
 
 /* ============================
    BOTON FAVORITO
@@ -1355,7 +1244,6 @@ footer {
   background: #ffffff;
   border-radius: 12px;
   padding: 15px;
-  width: 45%;
   max-width: 700px;
   margin: 0 auto;
   margin-top: 15px;
@@ -1369,9 +1257,12 @@ footer {
 /* ===============================
    BUSQUEDA
 =============================== */
+.busqueda {
+  margin: 15px 0 15px 50px;
+}
 
 .buscador {
-  width: 100%;
+  width: 80%;
   padding: 13px 16px;
   border: 2px solid #ccc;
   border-radius: 15px;
@@ -1381,7 +1272,6 @@ footer {
   background: #fff url("https://cdn-icons-png.flaticon.com/512/622/622669.png") no-repeat 15px center;
   background-size: 20px;
   padding-left: 45px;
-  box-sizing: border-box;
 }
 
 .buscador:focus {
@@ -1395,7 +1285,6 @@ footer {
 
 .mascota-filter {
   width: 100%;
-  display: flex;
   justify-content: center;
 }
 
@@ -1424,6 +1313,7 @@ footer {
   max-width: fit-content;
   flex-grow: 0;
   flex-shrink: 0;
+  max-height: 16px;
 }
 
 .mascota-filter ul li:hover {
@@ -1434,7 +1324,7 @@ footer {
 /* ===============================
    FAVORITOS
 =============================== */
-.favoritos-empty {
+    .favoritos-empty {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1478,18 +1368,100 @@ footer {
    RESPONSIVE (Media Queries)
 =============================== */
 @media (max-width: 900px){
-    .mascota-item{
-        width: calc(50% - 15px);
-    }
+  .mascota-item{
+    width: calc(50% - 15px);
+  }
+  .adoption-main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .adoption-form,
+  .adoption-mascota-card {
+    width: 90%;
+    flex: unset;
+  }
 }
 
 @media (max-width: 600px){
     .mascota-item{
         width: 100%;
     }
+    .busqueda-filtros {
+      width: 90%;
+      padding: 12px;
+      gap: 0.8rem;
+      flex-direction: column;
+      margin-top: 15px;
+    }
+
+    .buscador {
+      width: 80%;
+      padding: 12px 14px;
+      font-size: 15px;
+      background-size: 18px;
+      padding-left: 40px;
+    }
+
+    .mascota-filter {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .mascota-filter ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .mascota-filter ul li {
+        min-width: 75px;
+        font-size: 13px;
+        padding: 6px 10px;
+        border-radius: 10px;
+        text-align: center;
+    }
 }
 
-/* 📱 Teléfonos pequeños (hasta 480px) */
+@media (max-width: 768px) {
+    .nav-link {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 10px;
+        background-color: var(--purple-medium);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 20px;
+        display: none;
+    }
+
+    #nav-toggle:checked + .nav-hamburguer + .nav-link {
+        display: flex;
+    }
+
+    .nav-left, .nav-right {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-left a, .nav-right a {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+    .nav-left{
+        margin-left: 0;
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 480px) {
     .nav-logo { display: none; }
 
@@ -1612,7 +1584,6 @@ footer {
     }
 }
 
-/* 📱 Teléfonos normales (481px a 767px) */
 @media (min-width: 481px) and (max-width: 767px) {
   .nav-hamburguer {
     display: flex;
@@ -1703,7 +1674,42 @@ footer {
     }
 }
 
-/* 📲 Tablets en vertical (768px a 1023px) */
+@media (min-width: 601px) and (max-width: 900px) {
+
+    .busqueda-filtros {
+        width: 90%;
+        max-width: 600px;
+        padding: 14px;
+        gap: 1rem;
+        margin: 0 auto;
+        margin-top: 15px;
+    }
+
+    .mascota-filter {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .mascota-filter ul {
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .mascota-filter ul li {
+        min-width: 85px;
+        padding: 7px 12px;
+        font-size: 14px;
+        border-radius: 12px;
+        text-align: center;
+    }
+}
+
 @media (min-width: 768px) and (max-width: 1023px) {
     .nav-bounds{
         padding: 0 25px;
@@ -1735,10 +1741,5 @@ footer {
     .hero .button {
         font-size: 1.1rem;
         padding: 0.4rem 0.8rem;
-    }
-
-    .mascota-filter {
-        flex: 0 0 150px;
-        margin: 0;
     }
 }
