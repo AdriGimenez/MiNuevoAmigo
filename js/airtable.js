@@ -1,4 +1,4 @@
-import { AIRTABLE_API_KEY, BASE_ID } from "./airtable-secret.js";
+import { AIRTABLE_TOKEN, BASE_ID } from "./env.js";
 
 const TABLES = {
     Mascotas: "tblSbsLzVV7LE2Iwq",
@@ -11,7 +11,7 @@ async function airtableFetch(tableId, method = "GET", fields = null) {
     const options = {
         method,
         headers: {
-            Authorization: `Bearer ${AIRTABLE_API_KEY}`,
+            Authorization: `Bearer ${AIRTABLE_TOKEN}`,
             "Content-Type": "application/json"
         }
     };

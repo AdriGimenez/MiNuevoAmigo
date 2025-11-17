@@ -1,4 +1,4 @@
-import { AIRTABLE_API_KEY, BASE_ID } from "./airtable-secret.js";
+import { AIRTABLE_TOKEN, BASE_ID } from "./env.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("mascotaContainer");
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
       const response = await fetch(airtableUrl, {
         headers: {
-          Authorization: `Bearer ${AIRTABLE_API_KEY}`,
+          Authorization: `Bearer ${AIRTABLE_TOKEN}`,
           "Content-Type": "application/json"
         }
       });
