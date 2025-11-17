@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const users = data.records;
 
             const user = users.find(u => 
-                u.fields.email === email && 
+                u.fields.email.toLowerCase() === email.toLowerCase() && 
                 u.fields.password === password
             );
 
