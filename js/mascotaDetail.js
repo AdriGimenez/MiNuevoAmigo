@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!id) return;
 
   try {
-    const response = await fetch("./data/mascotas.json");
-    const mascotas = await response.json();
+    const mascotas = await airtableGet(TABLE_MASCOTAS);
+
 
     const mascota = mascotas.find(m => m.id == id);
     if (!mascota) {
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     container.innerHTML = `
       <div class="mascota-detail-card-horizontal">
         <div class="mascota-img-col">
-          <img src="${mascota.image}" alt="${mascota.name}">
+          <img src="${mascota.image[0].url}" alt="${mascota.name}">
         </div>
         <div class="mascota-info-col">
           <h2 class="mascota-name">${mascota.name}</h2>

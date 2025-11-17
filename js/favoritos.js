@@ -18,8 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     try {
-      const response = await fetch("./data/mascotas.json");
-      const mascotasData = await response.json();
+      const mascotasData = await airtableGet(TABLE_MASCOTAS);
 
       const favoritas = mascotasData.filter(m => favoritos.includes(m.id));
 
@@ -37,8 +36,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             </svg>
           </button>
 
-          <div class="mascota-img" style="background-image: url('${mascota.image}')"></div>
-          <div class="mascota-img-hover" style="background-image: url('${mascota.image}')"></div>
+          <div class="mascota-img" style="background-image: url('${mascota.image[0].url}')"></div>
+          <div class="mascota-img-hover" style="background-image: url('${mascota.image[0].url}')"></div>
           <div class="mascota-info">
             <span class="mascota-category">${mascota.name}</span>
             <h3 class="mascota-title">Raza: ${mascota.breed}</h3>

@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
   try {
-    const response = await fetch("./data/mascotas.json");
-    mascotasData = await response.json();
+    mascotasData = await airtableGet(TABLE_MASCOTAS);
+
 
     const categorias = [...new Set(mascotasData.map(m => m.category))];
     categorias.unshift("Todos");
@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             </svg>
           </button>
 
-          <div class="mascota-img" style="background-image: url('${mascota.image}')"></div>
-          <div class="mascota-img-hover" style="background-image: url('${mascota.image}')"></div>
+          <div class="mascota-img" style="background-image: url('${mascota.image[0].url}')"></div>
+          <div class="mascota-img-hover" style="background-image: url('${mascota.image[0].url}')"></div>
           <div class="mascota-info">
             <span class="mascota-category">${mascota.name}</span>
             <h3 class="mascota-title">Raza: ${mascota.breed}</h3>

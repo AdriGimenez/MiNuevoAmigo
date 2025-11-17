@@ -5,8 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!id) return;
 
   try {
-    const response = await fetch("./data/mascotas.json");
-    const mascotas = await response.json();
+    const mascotas = await airtableGet(TABLE_MASCOTAS);
 
     const mascota = mascotas.find(m => m.id == id);
     if (!mascota) {
