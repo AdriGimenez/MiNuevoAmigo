@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    // Traemos todas las solicitudes del usuario loggeado
+    // Traemos todas las solicitudes del usuario logueado
     const response = await fetch(
       `https://api.airtable.com/v0/${BASE_ID}/Solicitudes?filterByFormula={usuario}='${user.username}'`,
       {
@@ -32,10 +32,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     container.innerHTML = "";
 
-    // Recorremos cada solicitud y obtenemos el nombre de la mascota
+    // Recorremos cada solicitud y obtenemos el nombre y la imagen de la mascota
     for (const solicitud of solicitudes) {
       const fields = solicitud.fields;
       let mascotaName = "Sin datos";
+      let mascotaImg = "./img/placeholder.png"; // Imagen por defecto
 
       if (fields.mascota && fields.mascota.length > 0) {
         const mascotaId = fields.mascota[0];
@@ -50,11 +51,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         );
         const mascotaData = await mascotaRes.json();
         mascotaName = mascotaData.fields?.name || "Sin datos";
+        mascotaImg = mascotaData.fields?.image?.[0]?.url || "./img/placeholder.png";
       }
 
       container.innerHTML += `
         <div class="solicitud-item">
-          <h3>Mascota: ${mascotaName}</h3>
+          <div class="solicitud-header">
+            <img src="${mascotaImg}" alt="${mascotaName}" class="solicitud-img">
+            <h3>Mascota: ${mascotaName}</h3>
+          </div>
           <p><strong>Estado:</strong> ${fields.estado || "Pendiente"}</p>
           <p><strong>Mensaje:</strong> ${fields.mensaje || ""}</p>
           <p><strong>Teléfono:</strong> ${fields.telefono || ""}</p>
