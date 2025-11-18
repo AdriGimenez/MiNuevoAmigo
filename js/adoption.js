@@ -1,40 +1,101 @@
+import { AIRTABLE_TOKEN, BASE_ID } from "./env.js";
+
 document.addEventListener("DOMContentLoaded", async () => {
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
 
-  if (!id) return;
+    const params = new URLSearchParams(window.location.search);
+    const mascotaId = params.get("id");
 
-  try {
-    const mascotas = await airtableGet(TABLE_MASCOTAS);
+    const user = JSON.parse(localStorage.getItem("user"));
 
-    const mascota = mascotas.find(m => m.id == id);
-    if (!mascota) {
-      document.getElementById("mascota-info").innerHTML = "<p>Mascota no encontrada</p>";
-      return;
+    if (!user) {
+        alert("Debes iniciar sesión para enviar una solicitud.");
+        window.location.href = "login.html";
+        return;
     }
 
-    const infoContainer = document.getElementById("mascota-info");
-    infoContainer.innerHTML = `
-      <div class="adoption-mascota-card">
-        <div class="adoption-mascota-img">
-          <img src="${mascota.image}" alt="${mascota.name}">
-        </div>
-        <div class="adoption-mascota-details">
-          <h3>${mascota.name}</h3>
-          <p><strong>Edad:</strong> ${mascota.age}</p>
-          <p><strong>Raza:</strong> ${mascota.breed}</p>
-          <p class="story">${mascota.story}</p>
-        </div>
-      </div>
-    `;
-  } catch (error) {
-    console.error("Error al cargar la mascota:", error);
-  }
+    // ===============================
+    // 1. CARGAR INFO DE LA MASCOTA
+    // ===============================
 
+    const mascotaUrl = `https://api.airtable.com/v0/${BASE_ID}/Mascotas/${mascotaId}`;
 
-  const form = document.getElementById("adoption-form");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    alert("Formulario enviado correctamente (simulado)");
-  });
+    try {
+        const res = await fetch(mascotaUrl, {
+            headers: {
+                Authorization: `Bearer ${AIRTABLE_TOKEN}`
+            }
+        });
+
+        const data = await res.json();
+
+        const mascotaInfo = document.getElementById("mascota-info");
+        mascotaInfo.innerHTML = `
+            <div class="mascota-detail-card">
+                <img src="${data.fields.image?.[0]?.url || ""}">
+                <h2>${data.fields.name}</h2>
+                <p>Raza: ${data.fields.breed}</p>
+                <p>Edad: ${data.fields.age || "Sin datos"}</p>
+            </div>
+        `;
+    } catch (error) {
+        console.error("Error cargando mascota:", error);
+    }
+
+    // ===============================
+    // 2. ENVIAR FORMULARIO
+    // ===============================
+
+    const form = document.getElementById("adoption-form");
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        const nombre = formData.get("nombre");
+        const email = formData.get("email");
+        const telefono = formData.get("telefono");
+        const direccion = formData.get("direccion");
+        const motivo = formData.get("motivo");
+
+        // ARMAR CUERPO PARA AIRTABLE (todo minúscula)
+        const body = {
+            fields: {
+                usuario: [user.id],
+                mascota: [mascotaId],
+                nombre,
+                email,
+                telefono,
+                direccion,
+                motivo,
+                estado: "pendiente"
+            }
+        };
+
+        try {
+            const response = await fetch(
+                `https://api.airtable.com/v0/${BASE_ID}/Solicitudes`,
+                {
+                    method: "POST",
+                    headers: {
+                        Authorization: `Bearer ${AIRTABLE_TOKEN}`,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(body)
+                }
+            );
+
+            if (response.ok) {
+                alert("Solicitud enviada con éxito.");
+                window.location.href = "mascotas.html";
+            } else {
+                console.error(await response.text());
+                alert("Hubo un error al enviar la solicitud.");
+            }
+
+        } catch (error) {
+            console.error(error);
+            alert("Error en la solicitud.");
+        }
+    });
 });
