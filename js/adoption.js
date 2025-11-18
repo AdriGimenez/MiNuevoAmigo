@@ -11,9 +11,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    // ===============================
-    // 1. CARGAR INFO DE LA MASCOTA
-    // ===============================
     const mascotaUrl = `https://api.airtable.com/v0/${BASE_ID}/Mascotas/${mascotaId}`;
 
     try {
@@ -41,18 +38,20 @@ document.addEventListener("DOMContentLoaded", async () => {
             "<p>Error al cargar la mascota.</p>";
     }
 
-    // ===============================
-    // 2. ENVIAR FORMULARIO
-    // ===============================
     const form = document.getElementById("adoption-form");
+    const submitButton = form.querySelector('button[type="submit"]');
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
+        // Deshabilitar el botón mientras se procesa
+        submitButton.disabled = true;
+        submitButton.textContent = "Enviando...";
+
         const formData = new FormData(form);
         const telefono = formData.get("telefono");
         const direccion = formData.get("direccion");
-        const mensaje = formData.get("motivo"); // ahora coincide con el campo mensaje
+        const mensaje = formData.get("motivo");
 
         const body = {
             fields: {
@@ -79,15 +78,19 @@ document.addEventListener("DOMContentLoaded", async () => {
             );
 
             if (response.ok) {
-                alert("Solicitud enviada con éxito.");
-                window.location.href = "mascotas.html";
+                // Redirige directamente a solicitudes.html
+                window.location.href = "solicitudes.html";
             } else {
                 console.error(await response.text());
                 alert("Hubo un error al enviar la solicitud.");
+                submitButton.disabled = false;
+                submitButton.textContent = "Enviar solicitud";
             }
         } catch (error) {
             console.error(error);
             alert("Error en la solicitud.");
+            submitButton.disabled = false;
+            submitButton.textContent = "Enviar solicitud";
         }
     });
 });

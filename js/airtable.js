@@ -3,7 +3,8 @@ import { AIRTABLE_TOKEN, BASE_ID } from "./env.js";
 const TABLES = {
     Mascotas: "tblSbsLzVV7LE2Iwq",
     Usuarios: "tblHOuKr3gWT2Ed6L",
-    Favoritos: "tbl9ol93wYrRjVbds"
+    Favoritos: "tbl9ol93wYrRjVbds",
+    Solicitudes: "tblygiByIpeXvShyW"
 };
 
 async function airtableFetch(tableId, method = "GET", fields = null) {
