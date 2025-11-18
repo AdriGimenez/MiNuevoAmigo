@@ -29,16 +29,16 @@ function personalizeNavbar() {
 
   const navRight = document.querySelector(".nav-right");
   const favoritosLink = document.getElementById("nav-favoritos");
+  const solicitudesLink = document.getElementById("nav-solicitudes");
 
   if (!navRight) return;
 
-  // ==== Ocultar o mostrar FAVORITOS ====
+  // ==== Ocultar o mostrar FAVORITOS y SOLICITUDES ====
   if (favoritosLink) {
-    if (user) {
-      favoritosLink.style.display = "inline-block"; // mostrar si loggeado
-    } else {
-      favoritosLink.style.display = "none"; // ocultar si NO loggeado
-    }
+    favoritosLink.style.display = user ? "inline-block" : "none";
+  }
+  if (solicitudesLink) {
+    solicitudesLink.style.display = user ? "inline-block" : "none";
   }
 
   // ==== Mostrar usuario o Login/Registro ====
