@@ -1,23 +1,19 @@
 import { AIRTABLE_TOKEN, BASE_ID } from "./env.js";
 
-const tablaUsuarios = "Usuarios"; // Nombre de la tabla en Airtable
+const tablaUsuarios = "Usuarios"; 
 
-// Elementos del DOM
 const tablaBody = document.getElementById("usuarios-body");
 const btnAdd = document.getElementById("btn-add");
 const formContainer = document.getElementById("form-container");
 const btnGuardar = document.getElementById("btn-guardar");
 const btnCancelar = document.getElementById("btn-cancelar");
 
-const inputUsername = document.getElementById("nombre");  // AHORA username
-const inputEmail = document.getElementById("correo");     // email
-const inputRol = document.getElementById("rol");          // role
+const inputUsername = document.getElementById("nombre");
+const inputEmail = document.getElementById("correo");    
+const inputRol = document.getElementById("rol");     
 
 let editID = null;
 
-/* ============================================================
-   MOSTRAR FORMULARIO: Nuevo Usuario
-   ============================================================ */
 btnAdd.addEventListener("click", () => {
   editID = null;
   document.getElementById("form-title").textContent = "Nuevo Usuario";
@@ -25,17 +21,11 @@ btnAdd.addEventListener("click", () => {
   formContainer.classList.remove("hidden");
 });
 
-/* ============================================================
-   CANCELAR FORMULARIO
-   ============================================================ */
 btnCancelar.addEventListener("click", () => {
   formContainer.classList.add("hidden");
   limpiarFormulario();
 });
 
-/* ============================================================
-   CARGAR USUARIOS DESDE AIRTABLE
-   ============================================================ */
 async function cargarUsuarios() {
   tablaBody.innerHTML = "";
 
@@ -69,9 +59,6 @@ async function cargarUsuarios() {
   agregarEventosAcciones();
 }
 
-/* ============================================================
-   AGREGAR EVENTOS DE EDITAR Y ELIMINAR
-   ============================================================ */
 function agregarEventosAcciones() {
   document
     .querySelectorAll(".btn-edit")
@@ -82,9 +69,6 @@ function agregarEventosAcciones() {
     .forEach((btn) => btn.addEventListener("click", () => eliminarUsuario(btn.dataset.id)));
 }
 
-/* ============================================================
-   EDITAR USUARIO
-   ============================================================ */
 async function editarUsuario(id) {
   editID = id;
 
@@ -105,9 +89,6 @@ async function editarUsuario(id) {
   formContainer.classList.remove("hidden");
 }
 
-/* ============================================================
-   GUARDAR USUARIO
-   ============================================================ */
 btnGuardar.addEventListener("click", async () => {
   const fields = {
     username: inputUsername.value.trim(),
@@ -135,9 +116,6 @@ btnGuardar.addEventListener("click", async () => {
   cargarUsuarios();
 });
 
-/* ============================================================
-   ELIMINAR USUARIO
-   ============================================================ */
 async function eliminarUsuario(id) {
   if (!confirm("¿Eliminar este usuario?")) return;
 
@@ -152,16 +130,10 @@ async function eliminarUsuario(id) {
   cargarUsuarios();
 }
 
-/* ============================================================
-   LIMPIAR FORMULARIO
-   ============================================================ */
 function limpiarFormulario() {
   inputUsername.value = "";
   inputEmail.value = "";
   inputRol.value = "usuario";
 }
 
-/* ============================================================
-   INICIALIZAR
-   ============================================================ */
 cargarUsuarios();

@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             localStorage.setItem("user", JSON.stringify(sessionUser));
 
-            // SIN mensajes de bienvenida
             window.location.href = "index.html";
 
         } catch (error) {

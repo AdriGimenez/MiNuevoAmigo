@@ -1313,6 +1313,184 @@ footer {
   stroke-width: 1.2;
 }
 
+/* ========================
+   ESTILOS GENERALES ADMIN
+ ======================= */ 
+ .main-admin { 
+    max-width: 900px;
+    margin: 40px auto; 
+    padding: 20px; }
+
+    .admin-title { 
+      text-align: center; 
+      margin-bottom: 25px; 
+      font-weight: 700; 
+      font-size: 2rem; 
+      color: #333; } 
+      
+/* =======================
+   PANEL PRINCIPAL ADMIN
+ ====================== */ 
+ .admin-panel { 
+  max-width: 900px; 
+  margin: 40px auto; 
+  background: #fff; 
+  padding: 30px; 
+  border-radius: 15px; 
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12); 
+} 
+.admin-panel h1 { 
+  text-align: center; 
+  margin-bottom: 30px; 
+  font-size: 2rem; 
+  font-weight: 700; 
+  color: #333; 
+}
+
+.admin-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+  gap: 25px; 
+}
+
+.admin-card { 
+  background: #fafafa; 
+  padding: 22px; 
+  text-decoration: none; 
+  border-radius: 12px; 
+  color: #222; 
+  box-shadow: 0 3px 12px rgba(0,0,0,0.10); 
+  transition: 0.2s ease; 
+} 
+.admin-card:hover { 
+  transform: translateY(-3px); 
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15); 
+}
+
+  #btn-add { 
+    display: inline-block; 
+    background: #4a90e2; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 16px; 
+    border-radius: 8px; 
+    font-size: 1rem; 
+    cursor: pointer; 
+    margin-bottom: 20px; 
+    transition: 0.2s ease; 
+    font-weight: 600; 
+  }
+  
+  #btn-add:hover { 
+    background: #357ac4; 
+  } 
+
+   .admin-table-container { 
+    background: #fff; 
+    padding: 20px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12); 
+    margin-bottom: 30px; 
+  }
+
+  .admin-table { 
+    width: 100%; 
+    border-collapse: collapse;
+  } 
+  
+  .admin-table th { 
+    text-align: left; 
+    padding: 12px; 
+    color: #555; 
+    font-weight: 700; 
+  } 
+  
+  .admin-table td { 
+    padding: 12px; 
+    border-top: 1px solid #eee; 
+  } 
+  
+  .admin-table tr:hover { 
+    background: #fafafa; 
+  }
+  
+/* ========================
+   BOTONES DE ACCIONES 
+============================ */ 
+.btn-edit, .btn-delete { 
+  padding: 6px 12px; 
+  border: none; 
+  border-radius: 6px; 
+  cursor: pointer; 
+  font-weight: 600; 
+  margin-right: 5px; 
+} 
+.btn-edit { 
+  background: #10b981; 
+  color: white;
+} 
+
+.btn-edit:hover { 
+  background: #0d966b; 
+}
+
+.btn-delete { 
+  background: #ef4444; 
+  color: white; 
+}
+
+.btn-delete:hover { 
+  background: #c73030; 
+}
+
+.admin-card-form { 
+  background: #ffffff; 
+  padding: 25px; 
+  border-radius: 14px; 
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12); 
+  max-width: 500px; margin: 20px auto; 
+}
+
+.admin-card-form h2 { 
+  margin-bottom: 15px; 
+  font-weight: 700; 
+  color: #333; 
+}
+
+.admin-card-form label { 
+  font-weight: 600; 
+  margin-top: 12px; 
+  display: block; 
+  color: #444; 
+}
+
+.admin-card-form input, 
+.admin-card-form textarea, 
+.admin-card-form select { 
+  width: 100%; 
+  padding: 10px; 
+  margin-top: 4px; 
+  border-radius: 8px; 
+  border: 1px solid #ccc; 
+  background: #fafafa; 
+  font-size: 1rem; 
+} 
+
+.admin-card-form textarea { 
+  min-height: 80px; 
+}
+
+.form-buttons { 
+  display: flex; 
+  justify-content: flex-end; 
+  gap: 12px; 
+  margin-top: 20px; 
+} 
+
+.hidden { 
+  display: none; 
+}
+
 /* ===============================
    CONTENEDOR BUSQUEDA + FILTROS
 =============================== */
@@ -1819,189 +1997,4 @@ footer {
         font-size: 1.1rem;
         padding: 0.4rem 0.8rem;
     }
-}
-
-/* ============================================================
- =============== ESTILOS GENERALES ADMIN ==================== 
- ============================================================ */ 
- .main-admin { 
-    max-width: 900px;
-    margin: 40px auto; 
-    padding: 20px; }
-
-    .admin-title { 
-      text-align: center; 
-      margin-bottom: 25px; 
-      font-weight: 700; 
-      font-size: 2rem; 
-      color: #333; } 
-      
-/* ============================================================
- ==================== PANEL PRINCIPAL ADMIN ================== 
- ============================================================ */ 
- .admin-panel { 
-  max-width: 900px; 
-  margin: 40px auto; 
-  background: #fff; 
-  padding: 30px; 
-  border-radius: 15px; 
-  box-shadow: 0 4px 18px rgba(0,0,0,0.12); 
-} 
-.admin-panel h1 { 
-  text-align: center; 
-  margin-bottom: 30px; 
-  font-size: 2rem; 
-  font-weight: 700; 
-  color: #333; 
-}
-
-.admin-grid { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
-  gap: 25px; 
-}
-
-.admin-card { 
-  background: #fafafa; 
-  padding: 22px; 
-  text-decoration: none; 
-  border-radius: 12px; 
-  color: #222; 
-  box-shadow: 0 3px 12px rgba(0,0,0,0.10); 
-  transition: 0.2s ease; 
-} 
-.admin-card:hover { 
-  transform: translateY(-3px); 
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15); 
-}
- /* ============================================================
-  ================== BOTÓN DE AGREGAR ========================= 
-  ============================================================ */ 
-  #btn-add { 
-    display: inline-block; 
-    background: #4a90e2; 
-    color: #fff; 
-    border: none; 
-    padding: 10px 16px; 
-    border-radius: 8px; 
-    font-size: 1rem; 
-    cursor: pointer; 
-    margin-bottom: 20px; 
-    transition: 0.2s ease; 
-    font-weight: 600; 
-  }
-  
-  #btn-add:hover { 
-    background: #357ac4; 
-  } 
-  /* ============================================================ 
-  ================== TABLA COMO TARJETA =======================
-   ============================================================ */ 
-   .admin-table-container { 
-    background: #fff; 
-    padding: 20px; 
-    border-radius: 12px; 
-    box-shadow: 0 4px 18px rgba(0,0,0,0.12); 
-    margin-bottom: 30px; 
-  }
-
-  .admin-table { 
-    width: 100%; 
-    border-collapse: collapse;
-  } 
-  
-  .admin-table th { 
-    text-align: left; 
-    padding: 12px; 
-    color: #555; 
-    font-weight: 700; 
-  } 
-  
-  .admin-table td { 
-    padding: 12px; 
-    border-top: 1px solid #eee; 
-  } 
-  
-  .admin-table tr:hover { 
-    background: #fafafa; 
-  }
-  
-/* ============================================================
-================== BOTONES DE ACCIONES ====================== 
-============================================================ */ 
-.btn-edit, .btn-delete { 
-  padding: 6px 12px; 
-  border: none; 
-  border-radius: 6px; 
-  cursor: pointer; 
-  font-weight: 600; 
-  margin-right: 5px; 
-} 
-.btn-edit { 
-  background: #10b981; 
-  color: white;
-} 
-
-.btn-edit:hover { 
-  background: #0d966b; 
-}
-
-.btn-delete { 
-  background: #ef4444; 
-  color: white; 
-}
-
-.btn-delete:hover { 
-  background: #c73030; 
-}
-
-/* ============================================================
- ================= FORMULARIO COMO CARD ====================== 
- ============================================================ */ 
-.admin-card-form { 
-  background: #ffffff; 
-  padding: 25px; 
-  border-radius: 14px; 
-  box-shadow: 0 4px 18px rgba(0,0,0,0.12); 
-  max-width: 500px; margin: 20px auto; 
-}
-
-.admin-card-form h2 { 
-  margin-bottom: 15px; 
-  font-weight: 700; 
-  color: #333; 
-}
-
-.admin-card-form label { 
-  font-weight: 600; 
-  margin-top: 12px; 
-  display: block; 
-  color: #444; 
-}
-
-.admin-card-form input, 
-.admin-card-form textarea, 
-.admin-card-form select { 
-  width: 100%; 
-  padding: 10px; 
-  margin-top: 4px; 
-  border-radius: 8px; 
-  border: 1px solid #ccc; 
-  background: #fafafa; 
-  font-size: 1rem; 
-} 
-
-.admin-card-form textarea { 
-  min-height: 80px; 
-}
-
-.form-buttons { 
-  display: flex; 
-  justify-content: flex-end; 
-  gap: 12px; 
-  margin-top: 20px; 
-} 
-
-.hidden { 
-  display: none; 
 }

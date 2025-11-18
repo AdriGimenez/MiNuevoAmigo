@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (!id) return;
 
-  const user = JSON.parse(localStorage.getItem("user")); // Usuario logueado
+  const user = JSON.parse(localStorage.getItem("user"));
   if (!user || !user.id) {
     alert("Debes iniciar sesión para agregar a favoritos.");
     window.location.href = "login.html";
@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    // Datos de la mascota con ID interno de Airtable
     const mascota = {
-      id: data.id, // ID interno
+      id: data.id,
+      id_original: data.fields.ID,
       name: data.fields.name,
       breed: data.fields.breed,
       age: data.fields.age,
@@ -66,9 +66,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const favButton = document.getElementById("add-favorite");
 
-    // --- Verificar si ya está en Favoritos ---
     const checkFavorite = async () => {
-      const filterFormula = `AND(usuario='${user.id}', mascota='${mascota.id}')`;
+      const filterFormula = `AND(usuario='${user.username}', mascota='${mascota.id_original}')`;
       try {
         const res = await fetch(
           `https://api.airtable.com/v0/${BASE_ID}/Favoritos?filterByFormula=${encodeURIComponent(filterFormula)}`,
@@ -80,7 +79,6 @@ document.addEventListener("DOMContentLoaded", async () => {
           }
         );
         const data = await res.json();
-        console.log(data)
         if (data.records.length > 0) {
           favButton.disabled = true;
           favButton.textContent = "Ya está en favoritos";
@@ -95,18 +93,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     await checkFavorite();
 
-    // --- Agregar a Favoritos ---
     favButton.addEventListener("click", async () => {
       favButton.disabled = true;
       favButton.textContent = "Agregando...";
 
       try {
-        const id_favorito = Date.now(); // número único
+        const id_favorito = Date.now();
 
         const body = {
           fields: {
-            usuario: [user.id],   // ID interno
-            mascota: [mascota.id] // ID interno
+            usuario: [user.id], 
+            mascota: [mascota.id] 
           }
         };
 

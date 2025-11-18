@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    // Traemos todas las solicitudes del usuario logueado
     const response = await fetch(
       `https://api.airtable.com/v0/${BASE_ID}/Solicitudes?filterByFormula={usuario}='${user.username}'`,
       {
@@ -32,11 +31,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     container.innerHTML = "";
 
-    // Recorremos cada solicitud y obtenemos el nombre y la imagen de la mascota
     for (const solicitud of solicitudes) {
       const fields = solicitud.fields;
       let mascotaName = "Sin datos";
-      let mascotaImg = "./img/placeholder.png"; // Imagen por defecto
+      let mascotaImg = "./img/placeholder.png";
 
       if (fields.mascota && fields.mascota.length > 0) {
         const mascotaId = fields.mascota[0];

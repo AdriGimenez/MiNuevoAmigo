@@ -44,7 +44,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        // Deshabilitar el botón mientras se procesa
         submitButton.disabled = true;
         submitButton.textContent = "Enviando...";
 
@@ -78,7 +77,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             );
 
             if (response.ok) {
-                // Redirige directamente a solicitudes.html
                 window.location.href = "solicitudes.html";
             } else {
                 console.error(await response.text());

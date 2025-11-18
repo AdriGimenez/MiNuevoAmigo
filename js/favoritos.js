@@ -1,4 +1,4 @@
-import { AIRTABLE_TOKEN, BASE_ID, USER_EMAIL } from "./env.js"; // USER_EMAIL: email del usuario logueado
+import { AIRTABLE_TOKEN, BASE_ID } from "./env.js";
 
 const TABLE_FAVORITOS = "Favoritos";
 const TABLE_MASCOTAS = "Mascotas";
@@ -6,30 +6,139 @@ const TABLE_MASCOTAS = "Mascotas";
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("favoritosContainer");
 
-  // Función para obtener favoritos del usuario desde Airtable
-  const getFavoritos = async () => {
-    const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_FAVORITOS}?filterByFormula={usuario email}='${USER_EMAIL}'`;
-    const res = await fetch(url, {
-      headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` }
-    });
-    const data = await res.json();
-    return data.records;
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) {
+    container.innerHTML = "<p>Debes iniciar sesión para ver tus favoritos.</p>";
+    return;
+  }
+
+  const fetchJson = async (url, opts = {}) => {
+    const r = await fetch(url, opts);
+    if (!r.ok) {
+      const t = await r.text();
+      throw new Error(`HTTP ${r.status} - ${t}`);
+    }
+    return r.json();
   };
 
-  // Función para eliminar favorito
+  const getFavoritosByInternalId = async () => {
+    const formula = `FIND('${user.id}', ARRAYJOIN(usuario))`;
+    const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_FAVORITOS}?filterByFormula=${encodeURIComponent(formula)}`;
+    const res = await fetch(url, { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } });
+    const data = await res.json();
+    return data.records || [];
+  };
+
+
+  const getFavoritosByUsername = async () => {
+
+    const formula = `{usuario}='${user.username || user.email || ""}'`;
+    const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_FAVORITOS}?filterByFormula=${encodeURIComponent(formula)}`;
+    const res = await fetch(url, { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } });
+    const data = await res.json();
+    return data.records || [];
+  };
+
+  const getFavoritos = async () => {
+    try {
+      let records = await getFavoritosByInternalId();
+      if (records.length === 0) {
+        records = await getFavoritosByUsername();
+      }
+      return records;
+    } catch (err) {
+      console.error("Error fetching favoritos:", err);
+      return [];
+    }
+  };
+
   const eliminarFavorito = async (favoritoId) => {
-    await fetch(`https://api.airtable.com/v0/${BASE_ID}/${TABLE_FAVORITOS}/${favoritoId}`, {
+    await fetchJson(`https://api.airtable.com/v0/${BASE_ID}/${TABLE_FAVORITOS}/${favoritoId}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` }
     });
   };
 
+  const resolveMascotaFromFavorite = async (fav) => {
+    if (fav.fields["mascota name"] || fav.fields["mascota image"] || fav.fields["mascota breed"]) {
+      return {
+        id: Array.isArray(fav.fields.mascota) ? fav.fields.mascota[0] : fav.fields.mascota,
+        name: fav.fields["mascota name"] || "",
+        breed: fav.fields["mascota breed"] || "",
+        category: fav.fields["mascota category"] || "",
+        image: fav.fields["mascota image"]?.[0]?.url || ""
+      };
+    }
+
+    const mascotaField = fav.fields.mascota;
+
+    if (Array.isArray(mascotaField) && mascotaField.length > 0 && typeof mascotaField[0] === "string") {
+      try {
+        const mascotaId = mascotaField[0];
+        const data = await fetchJson(`https://api.airtable.com/v0/${BASE_ID}/${TABLE_MASCOTAS}/${mascotaId}`, {
+          headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` }
+        });
+        return {
+          id: data.id,
+          name: data.fields.name || "",
+          breed: data.fields.breed || "",
+          category: data.fields.category || "",
+          image: data.fields.image?.[0]?.url || ""
+        };
+      } catch (err) {
+        console.error("Error fetching mascota by internal id:", err);
+        return null;
+      }
+    }
+
+    if (mascotaField !== undefined && (typeof mascotaField === "number" || (typeof mascotaField === "string" && /^[0-9]+$/.test(mascotaField)))) {
+      const idOriginal = mascotaField;
+      try {
+        const formula = `{ID}=${idOriginal}`;
+        const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_MASCOTAS}?filterByFormula=${encodeURIComponent(formula)}`;
+        const res = await fetch(url, { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } });
+        const data = await res.json();
+        const rec = data.records?.[0];
+        if (!rec) return null;
+        return {
+          id: rec.id,
+          name: rec.fields.name || "",
+          breed: rec.fields.breed || "",
+          category: rec.fields.category || "",
+          image: rec.fields.image?.[0]?.url || ""
+        };
+      } catch (err) {
+        console.error("Error fetching mascota by original id:", err);
+        return null;
+      }
+    }
+
+    if (typeof mascotaField === "string") {
+      try {
+        const data = await fetchJson(`https://api.airtable.com/v0/${BASE_ID}/${TABLE_MASCOTAS}/${mascotaField}`, {
+          headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` }
+        });
+        return {
+          id: data.id,
+          name: data.fields.name || "",
+          breed: data.fields.breed || "",
+          category: data.fields.category || "",
+          image: data.fields.image?.[0]?.url || ""
+        };
+      } catch (err) {
+        console.error("Error fetching mascota by string field:", err);
+        return null;
+      }
+    }
+
+    return null;
+  };
   const renderFavoritos = async () => {
     container.innerHTML = "";
     try {
       const favoritosRecords = await getFavoritos();
 
-      if (favoritosRecords.length === 0) {
+      if (!favoritosRecords || favoritosRecords.length === 0) {
         container.innerHTML = `
           <div class="favoritos-empty">
             <p class="patas">🐾</p>
@@ -41,12 +150,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
       }
 
-      favoritosRecords.forEach(fav => {
-        const mascota = fav.fields.mascota[0]; // id de la mascota relacionada
-        const name = fav.fields["mascota name"];
-        const breed = fav.fields["mascota breed"];
-        const category = fav.fields["mascota category"];
-        const image = fav.fields["mascota image"]?.[0]?.url || "";
+      for (const fav of favoritosRecords) {
+        const mascotaData = await resolveMascotaFromFavorite(fav);
+
+        if (!mascotaData) continue;
 
         const article = document.createElement("article");
         article.classList.add("mascota-item");
@@ -62,24 +169,27 @@ document.addEventListener("DOMContentLoaded", async () => {
             </svg>
           </button>
 
-          <div class="mascota-img" style="background-image: url('${image}')"></div>
-          <div class="mascota-img-hover" style="background-image: url('${image}')"></div>
+          <div class="mascota-img" style="background-image: url('${mascotaData.image}')"></div>
+          <div class="mascota-img-hover" style="background-image: url('${mascotaData.image}')"></div>
           <div class="mascota-info">
-            <span class="mascota-category">${name}</span>
-            <h3 class="mascota-title">Raza: ${breed}</h3>
-            <a href="./mascota-detail.html?id=${mascota}" class="button">Ver más</a>
+            <span class="mascota-category">${mascotaData.name}</span>
+            <h3 class="mascota-title">Raza: ${mascotaData.breed}</h3>
+            <a href="./mascota-detail.html?id=${mascotaData.id}" class="button">Ver más</a>
           </div>
         `;
         container.appendChild(article);
-      });
+      }
 
-      // Agregar eventos para eliminar favorito
       const corazones = document.querySelectorAll(".mascota-like");
       corazones.forEach(icono => {
         icono.addEventListener("click", async () => {
           const id = icono.dataset.id;
-          await eliminarFavorito(id);
-          renderFavoritos(); // refresca la lista
+          try {
+            await eliminarFavorito(id);
+            await renderFavoritos();
+          } catch (err) {
+            console.error("Error al eliminar favorito:", err);
+          }
         });
       });
 
