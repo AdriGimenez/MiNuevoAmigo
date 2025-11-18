@@ -1,17 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // 1. Cargar NAVBAR
   fetch("navbar.html")
     .then(response => response.text())
     .then(data => {
       document.getElementById("navbar-container").innerHTML = data;
 
-      // Llamar a función una vez que el navbar existe en el DOM
       personalizeNavbar();
     })
     .catch(error => console.error("Error al cargar el navbar:", error));
 
-  // 2. Cargar FOOTER
   fetch("footer.html")
     .then(response => response.text())
     .then(data => {
@@ -21,9 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// =========================================
-// FUNCIÓN QUE PERSONALIZA EL NAVBAR
-// =========================================
 function personalizeNavbar() {
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -33,7 +27,6 @@ function personalizeNavbar() {
 
   if (!navRight) return;
 
-  // ==== Ocultar o mostrar FAVORITOS y SOLICITUDES ====
   if (favoritosLink) {
     favoritosLink.style.display = user ? "inline-block" : "none";
   }
@@ -41,7 +34,6 @@ function personalizeNavbar() {
     solicitudesLink.style.display = user ? "inline-block" : "none";
   }
 
-  // ==== Mostrar usuario o Login/Registro ====
   navRight.innerHTML = "";
 
   if (user) {
