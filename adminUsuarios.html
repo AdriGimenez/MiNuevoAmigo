@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administrar Usuarios</title>
+
+  <!-- Estilos generales del admin -->
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    
+    <div id="navbar-container"></div>
+
+  <main class="main-admin">
+    <h1 class="admin-title">Administración de Usuarios</h1>
+
+    <!-- Botón agregar -->
+    <button id="btn-add">Agregar Usuario</button>
+
+    <!-- Tabla de usuarios -->
+    <div class="admin-table-container">
+      <table class="admin-table" id="tabla-usuarios">
+        <thead>
+          <tr>
+            <th>Correo</th>
+            <th>Nombre</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="usuarios-body">
+          <!-- Se llena dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Formulario agregar / editar -->
+    <div id="form-container" class="admin-card-form hidden">
+      <h2 id="form-title">Nuevo Usuario</h2>
+
+      <label for="correo">Correo</label>
+      <input type="email" id="correo" placeholder="correo@ejemplo.com" />
+
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" placeholder="Nombre completo" />
+
+      <label for="rol">Rol</label>
+      <select id="rol">
+        <option value="usuario">Usuario</option>
+        <option value="admin">Admin</option>
+      </select>
+
+      <div class="form-buttons">
+        <button id="btn-cancelar" class="btn-delete">Cancelar</button>
+        <button id="btn-guardar" class="btn-edit">Guardar</button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="./js/loadComponents.js"></script>
+  <script type="module" src="./js/adminUsuarios.js"></script>
+</body>
+</html>

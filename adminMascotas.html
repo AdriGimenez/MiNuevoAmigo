@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administración</title>
+  <link rel="stylesheet" href="./styles/styles.css">
+</head>
+
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="main-admin">
+    <h1 class="admin-title">Administración de Mascotas</h1>
+
+    <button id="btn-add" class="btn-primary">Agregar Mascota</button>
+
+    <!-- LISTADO -->
+    <div class="admin-table-container">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Categoría</th>
+            <th>Raza</th>
+            <th>Tamaño</th>
+            <th>Género</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="pets-table-body"></tbody>
+      </table>
+    </div>
+
+    <!-- FORMULARIO -->
+    <div id="form-card" class="admin-card-form hidden">
+  <h2 id="form-title">Agregar Mascota</h2>
+
+  <form id="pet-form">
+    <input type="hidden" id="pet-id">
+
+    <label>Nombre</label>
+    <input type="text" id="name">
+
+    <label>Edad</label>
+    <input type="text" id="age">
+
+    <label>Categoría</label>
+    <input type="text" id="category">
+
+    <label>Raza</label>
+    <input type="text" id="breed">
+
+    <label>Tamaño</label>
+    <input type="text" id="size">
+
+    <label>Género</label>
+    <input type="text" id="gender">
+
+    <label>Historia</label>
+    <textarea id="story"></textarea>
+
+    <label>Imagen (URL directa o archivo luego)</label>
+    <input type="text" id="image">
+
+    <div class="form-buttons">
+      <button type="button" id="btn-cancel" class="btn-delete">Cancelar</button>
+      <button type="submit" class="btn-edit">Guardar</button>
+    </div>
+  </form>
+</div>
+
+      </form>
+    </div>
+
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="./js/loadComponents.js"></script>
+  <script type="module" src="./js/adminMascotas.js"></script>
+</body>
+</html>
