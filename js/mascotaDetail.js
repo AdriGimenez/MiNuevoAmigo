@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!id) return;
 
   const user = JSON.parse(localStorage.getItem("user")); // Usuario logueado
+  if (!user || !user.id) {
+    alert("Debes iniciar sesión para agregar a favoritos.");
+    window.location.href = "login.html";
+    return;
+  }
 
   const airtableUrl = `https://api.airtable.com/v0/${BASE_ID}/Mascotas/${id}`;
 
@@ -19,16 +24,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     const data = await response.json();
-
     if (!data.fields) {
       document.getElementById("mascotaDetailContainer").innerHTML =
         "<p>Mascota no encontrada</p>";
       return;
     }
 
-    // Mapeo de los datos igual que en mascotas.js
+    // Datos de la mascota con ID interno de Airtable
     const mascota = {
-      id: data.id,
+      id: data.id, // ID interno
       name: data.fields.name,
       breed: data.fields.breed,
       age: data.fields.age,
@@ -60,26 +64,49 @@ document.addEventListener("DOMContentLoaded", async () => {
       </div>
     `;
 
-    // --- Funcionalidad Agregar a Favoritos ---
     const favButton = document.getElementById("add-favorite");
-    favButton.addEventListener("click", async () => {
-      if (!user || !user.id) {
-        alert("Debes iniciar sesión para agregar a favoritos.");
-        window.location.href = "login.html";
-        return;
-      }
 
+    // --- Verificar si ya está en Favoritos ---
+    const checkFavorite = async () => {
+      const filterFormula = `AND(usuario='${user.id}', mascota='${mascota.id}')`;
+      try {
+        const res = await fetch(
+          `https://api.airtable.com/v0/${BASE_ID}/Favoritos?filterByFormula=${encodeURIComponent(filterFormula)}`,
+          {
+            headers: {
+              Authorization: `Bearer ${AIRTABLE_TOKEN}`,
+              "Content-Type": "application/json"
+            }
+          }
+        );
+        const data = await res.json();
+        console.log(data)
+        if (data.records.length > 0) {
+          favButton.disabled = true;
+          favButton.textContent = "Ya está en favoritos";
+          return true;
+        }
+        return false;
+      } catch (err) {
+        console.error("Error al verificar favoritos:", err);
+        return false;
+      }
+    };
+
+    await checkFavorite();
+
+    // --- Agregar a Favoritos ---
+    favButton.addEventListener("click", async () => {
       favButton.disabled = true;
       favButton.textContent = "Agregando...";
 
       try {
-        const id_favorito = Date.now(); // ID simple para favoritos
+        const id_favorito = Date.now(); // número único
 
         const body = {
           fields: {
-            id_favorito,
-            usuario: [user.id],   // ID del usuario logueado
-            mascota: [mascota.id] // ID de la mascota que se muestra
+            usuario: [user.id],   // ID interno
+            mascota: [mascota.id] // ID interno
           }
         };
 
