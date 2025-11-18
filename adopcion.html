@@ -5,41 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    <title>Detalle de Mascotas</title>
+    <title>Formulario de adopción</title>
 </head>
 <body>
   <div id="navbar-container"></div>
 
   <main class="adoption-main">
-    <div id="mascota-info"></div>
-    <div id="form-container">
-      <form id="adoption-form" class="adoption-form">
-        <h2>Formulario de adopción</h2>
+    <div id="adoption-mascota-details"></div>
 
-        <label>Nombre completo:</label>
-        <input type="text" name="nombre" required>
+    <form id="adoption-form" class="adoption-form">
+      <h2>Formulario de adopción</h2>
 
-        <label>Email:</label>
-        <input type="email" name="email" required>
+      <label>Teléfono:</label>
+      <input type="tel" name="telefono" required>
 
-        <label>Teléfono:</label>
-        <input type="tel" name="telefono" required>
+      <label>Dirección:</label>
+      <input type="text" name="direccion" required>
 
-        <label>Dirección:</label>
-        <input type="text" name="direccion" required>
+      <label>¿Por qué querés adoptar a esta mascota?</label>
+      <textarea name="motivo" rows="4" required></textarea>
 
-        <label>¿Por qué querés adoptar a esta mascota?</label>
-        <textarea name="motivo" rows="4"></textarea>
-
-        <button type="submit">Enviar solicitud</button>
-      </form>
-    </div>
+      <button type="submit">Enviar solicitud</button>
+    </form>
   </main>
 
   <div id="footer-container"></div>
 
   <script src="js/loadComponents.js"></script>
-  <script src="js/adoption.js"></script>
+  <script type="module" src="js/adoption.js"></script>
 </body>
-
 </html>

@@ -1,10 +1,8 @@
 import { AIRTABLE_TOKEN, BASE_ID } from "./env.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-
     const params = new URLSearchParams(window.location.search);
     const mascotaId = params.get("id");
-
     const user = JSON.parse(localStorage.getItem("user"));
 
     if (!user) {
@@ -16,58 +14,53 @@ document.addEventListener("DOMContentLoaded", async () => {
     // ===============================
     // 1. CARGAR INFO DE LA MASCOTA
     // ===============================
-
     const mascotaUrl = `https://api.airtable.com/v0/${BASE_ID}/Mascotas/${mascotaId}`;
 
     try {
         const res = await fetch(mascotaUrl, {
-            headers: {
-                Authorization: `Bearer ${AIRTABLE_TOKEN}`
-            }
+            headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` }
         });
-
         const data = await res.json();
 
-        const mascotaInfo = document.getElementById("mascota-info");
-        mascotaInfo.innerHTML = `
-            <div class="mascota-detail-card">
-                <img src="${data.fields.image?.[0]?.url || ""}">
-                <h2>${data.fields.name}</h2>
-                <p>Raza: ${data.fields.breed}</p>
-                <p>Edad: ${data.fields.age || "Sin datos"}</p>
+        const cont = document.getElementById("adoption-mascota-details");
+        cont.innerHTML = `
+            <div class="adoption-mascota-card">
+                <div class="adoption-mascota-img">
+                    <img src="${data.fields.image?.[0]?.url || ""}" alt="${data.fields.name}">
+                </div>
+                <div class="adoption-mascota-details">
+                    <h3>${data.fields.name}</h3>
+                    <p><strong>Raza:</strong> ${data.fields.breed}</p>
+                    <p><strong>Edad:</strong> ${data.fields.age || "Sin datos"}</p>
+                </div>
             </div>
         `;
     } catch (error) {
         console.error("Error cargando mascota:", error);
+        document.getElementById("adoption-mascota-details").innerHTML =
+            "<p>Error al cargar la mascota.</p>";
     }
 
     // ===============================
     // 2. ENVIAR FORMULARIO
     // ===============================
-
     const form = document.getElementById("adoption-form");
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
         const formData = new FormData(form);
-
-        const nombre = formData.get("nombre");
-        const email = formData.get("email");
         const telefono = formData.get("telefono");
         const direccion = formData.get("direccion");
-        const motivo = formData.get("motivo");
+        const mensaje = formData.get("motivo"); // ahora coincide con el campo mensaje
 
-        // ARMAR CUERPO PARA AIRTABLE (todo minúscula)
         const body = {
             fields: {
                 usuario: [user.id],
                 mascota: [mascotaId],
-                nombre,
-                email,
                 telefono,
                 direccion,
-                motivo,
+                mensaje,
                 estado: "pendiente"
             }
         };
@@ -92,7 +85,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 console.error(await response.text());
                 alert("Hubo un error al enviar la solicitud.");
             }
-
         } catch (error) {
             console.error(error);
             alert("Error en la solicitud.");
