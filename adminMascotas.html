@@ -12,10 +12,10 @@
 
   <div id="navbar-container"></div>
 
-  <main class="main-admin">
+  <main class="admin-panel">
     <h1 class="admin-title">Administración de Mascotas</h1>
 
-    <button id="btn-add">Agregar Mascota</button>
+    <button class="button" id="btn-add">Agregar Mascota</button>
 
     <div class="admin-table-container">
       <table class="admin-table">
@@ -30,7 +30,7 @@
             <th>Acciones</th>
           </tr>
         </thead>
-        <tbody id="pets-table-body"></tbody>
+        <tbody id="pets-body"></tbody>
       </table>
     </div>
 
@@ -67,8 +67,8 @@
         <img id="preview-img" class="preview hidden" style="max-width:100%; margin-top:10px; border-radius:10px;">
 
         <div class="form-buttons">
-          <button type="button" id="btn-cancelar" class="btn-delete">Cancelar</button>
-          <button type="submit" id="btn-guardar" class="btn-edit">Guardar</button>
+          <button type="button" id="btn-delete" class="button">Cancelar</button>
+          <button type="submit" id="btn-edit" class="button">Guardar</button>
         </div>
       </form>
     </div>
