@@ -39,3 +39,4 @@ export async function createFavorite(userId, petId) {
     });
 }
 export async function getFavorites() { return airtableFetch(TABLES.Favoritos); }
+
