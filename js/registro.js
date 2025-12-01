@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Redirigir al login después de 2 segundos
             setTimeout(() => {
                 window.location.href = "login.html";
-            }, 2000);
+            }, 1000);
 
         } catch (error) {
             console.error(error);
