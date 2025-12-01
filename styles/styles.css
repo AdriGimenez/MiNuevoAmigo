@@ -1511,12 +1511,6 @@ BIEN */
         flex: 1;
         width: 60%;
     }
-    
-    .main-mascota{
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
 
 	.contact-container {
 		margin: 60px 15px;
@@ -1614,12 +1608,6 @@ BIEN */
     .mascota-filter {
         flex: 1;
         width: 60%;
-    }
-    
-    .main-mascota{
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
     }
 }
 
