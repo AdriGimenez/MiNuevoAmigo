@@ -32,5 +32,11 @@ export async function createUser(username, email, password) {
 export async function getUsers() { return airtableFetch(TABLES.Usuarios); }
 export async function createPet(data) { return airtableFetch(TABLES.Mascotas, "POST", data); }
 export async function getPets() { return airtableFetch(TABLES.Mascotas); }
-export async function createFavorite(userId, petId) { return airtableFetch(TABLES.Favoritos, "POST", { user: userId, pet: petId }); }
+export async function createFavorite(userId, petId) {
+    return airtableFetch(TABLES.Favoritos, "POST", {
+        usuario: [userId],
+        mascota: [petId]
+    });
+}
 export async function getFavorites() { return airtableFetch(TABLES.Favoritos); }
+
