@@ -1,11 +1,12 @@
 import { getUsers } from "./airtable.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector(".login-form");
+    const form = document.querySelector(".form");
 
     form.addEventListener("submit", async (e) => {
+        // Evita que se ejecute la acción predeterminada del evento.
         e.preventDefault();
-
+        // trim elimina los espacios en blanco
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
 
@@ -14,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const users = data.records;
 
             const user = users.find(u => 
-                u.fields.email.toLowerCase() === email.toLowerCase() && 
+                u.fields.email?.toLowerCase() === email.toLowerCase() && 
                 u.fields.password === password
             );
 
