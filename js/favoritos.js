@@ -10,9 +10,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   const fetchMascotaData = async (mascotaId) => {
-    const petsData = await getPets();
-    return petsData.records.find(p => p.id === mascotaId)?.fields || null;
-  };
+  const petsData = await getPets();
+  const mascota = petsData.records.find(p => p.id === mascotaId);
+  if (!mascota) return null;
+  return { id: mascota.id, ...mascota.fields };
+};
+
 
   const renderFavoritos = async () => {
     container.innerHTML = "";

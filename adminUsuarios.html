@@ -1,64 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Administrar Usuarios</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administrar Usuarios</title>
 
-  <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
-    
-  <div id="navbar-container"></div>
+        
+    <div id="navbar-container"></div>
 
-  <main class="admin-panel">
-    <h1 class="admin-title">Administración de Usuarios</h1>
+    <main class="admin-panel">
+        <h1 class="admin-title">Administración de Usuarios</h1>
 
-    <button class="button" id="btn-add">Agregar Usuario</button>
+        <button class="button" id="btn-add">Agregar Usuario</button>
 
-    <div class="admin-table-container">
-      <table class="admin-table">
-        <thead>
-          <tr>
-            <th>Correo</th>
-            <th>Nombre</th>
-            <th>Rol</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody id="usuarios-body">
-        </tbody>
-      </table>
-    </div>
+        <div class="admin-table-container">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Rol</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="usuarios-body">
+                </tbody>
+            </table>
+        </div>
 
-    <div id="form-container" class="admin-card-form hidden">
-      <h2 id="form-title">Nuevo Usuario</h2>
+        <div id="form-container" class="admin-card-form hidden">
+            <h2 id="form-title">Nuevo Usuario</h2>
 
-      <label for="correo">Correo</label>
-      <input type="email" id="correo" placeholder="correo@ejemplo.com" />
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" placeholder="Nombre completo" />
 
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" placeholder="Nombre completo" />
+            <label for="correo">Correo</label>
+            <input type="email" id="correo" placeholder="correo@ejemplo.com" />
 
-      <label for="rol">Rol</label>
-      <select id="rol">
-        <option value="usuario">Usuario</option>
-        <option value="admin">Admin</option>
-      </select>
+            <label for="rol">Rol</label>
+            <select id="rol">
+                <option value="usuario">Usuario</option>
+                <option value="admin">Admin</option>
+            </select>
 
-      <div class="form-buttons">
-        <button id="btn-delete" class="button">Cancelar</button>
-        <button id="btn-edit" class="button">Guardar</button>
-      </div>
+            <div class="form-buttons">
+                <button id="btn-cancelar" class="button button-secondary">Cancelar</button>
+                <button id="btn-guardar" class="button">Guardar</button>
+            </div>
 
-    </div>
+        </div>
 
-  </main>
+    </main>
 
-  <div id="footer-container"></div>
+    <div id="footer-container"></div>
 
-  <script src="./js/loadComponents.js"></script>
-  <script type="module" src="./js/adminUsuarios.js"></script>
+    <script src="./js/loadComponents.js"></script>
+    <script type="module" src="./js/adminUsuarios.js"></script>
 </body>
 </html>
