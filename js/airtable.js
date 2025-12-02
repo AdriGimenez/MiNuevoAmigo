@@ -59,10 +59,11 @@ export async function deletePet(id) {
 
 // FAVORITOS
 export async function createFavorite(userId, petId) {
-    return airtableFetch(TABLES.Favoritos, "POST", {
-        usuario: [userId],
+    const fieldsData = {
+        usuario: [userId], 
         mascota: [petId]
-    });
+    };
+    return airtableFetch(TABLES.Favoritos, "POST", { fields: fieldsData });
 }
 export async function getFavorites() { return airtableFetch(TABLES.Favoritos); }
 
@@ -84,7 +85,8 @@ export async function getFavoritosByUsername(username) {
 
 // SOLICITUDES
 export async function createSolicitud(data) {
-    return airtableFetch(TABLES.Solicitudes, "POST", data);
+    const airtableBody = { fields: data };
+    return airtableFetch(TABLES.Solicitudes, "POST", airtableBody);
 }
 export async function getSolicitudes() { return airtableFetch(TABLES.Solicitudes); }
 export async function getSolicitudesByUser(username) {
