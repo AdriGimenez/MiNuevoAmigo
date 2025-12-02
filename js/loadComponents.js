@@ -50,7 +50,7 @@ function personalizeNavbar() {
 
     navRight.innerHTML = `
       <span style="font-weight:600;">Hola, ${user.username}</span>
-      <button id="logoutBtn" class="button btn-login logout-btn-custom">Salir</button>
+      <button id="logoutBtn" class="button">Salir</button>
     `;
 
     document.getElementById("logoutBtn").addEventListener("click", () => {

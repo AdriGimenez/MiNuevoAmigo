@@ -933,7 +933,7 @@ footer {
   font-weight: 600;
   color: var(--purple-medium);
 }
-
+/* BIEN PÁGINA SOLICITUDES ADOPTANTE */
 /* ===============================
    FAVORITOS
 =============================== */
@@ -984,7 +984,7 @@ footer {
     gap: 20px;
     padding: 20px;
 }
-
+/* BIEN PÁGINA FAVORITOS */
 /* =======================================
    FORMULARIOS (Login, Registro, Contacto)
 ======================================= */
@@ -1124,6 +1124,8 @@ input:focus {
     background-color: var(--purple-dark);
     transform: translateY(-0.1rem);
 }
+/* BOTON Ver Más, Hero, Slides
+BIEN */
 
 /* ============================
    BOTON FAVORITO
