@@ -39,13 +39,13 @@ export async function createFavorite(userId, petId) {
     });
 }
 export async function getFavorites() { return airtableFetch(TABLES.Favoritos); }
-export async function deleteFavorite(favId) {
-  const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLES.Favoritos}/${favId}`;
-  const options = { method: "DELETE", headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } };
-  const response = await fetch(url, options);
-  if (!response.ok) throw new Error("Airtable request failed");
-  return await response.json();
-}
+
+export async function deleteFavorite(favoritoId) {
+    await fetch(`https://api.airtable.com/v0/${BASE_ID}/Favoritos/${favoritoId}`, {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` }
+    });
+  }
 
 export async function getFavoritosByUsername(username) {
     const formula = `{usuario}='${username}'`;
