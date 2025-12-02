@@ -93,7 +93,7 @@ import { getPets, getFavoritosByUsername, createFavorite, deleteFavorite } from 
               await createFavorite(user.id, mascotaId);
             }
             
-            await renderFavoritos(); 
+            location.reload();
           } catch (err) { 
             console.error("Error al eliminar favorito:", err); }
            });

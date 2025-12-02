@@ -1,4 +1,4 @@
-import { getPets, getFavorites, createFavorite } from './airtable.js';
+import { getPets, getFavoritosByUsername, createFavorite } from './airtable.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     const params = new URLSearchParams(window.location.search);
@@ -55,19 +55,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Manejar botón de favoritos
     const favButton = document.getElementById("fav-button");
    
-    // Verificar si ya está en favoritos
-    let favoritosData;
-    try {
-      favoritosData = await getFavorites();
-    } catch (error) {
-      console.error("Error al obtener favoritos:", error);
-      return;
-    }
+    // Traer favoritos del usuario 
+    let favoritosAirtable = []; 
+    const cargarFavoritos = async () => {
+    const favs = await getFavoritosByUsername(user.username);
+    
+     favoritosAirtable = favs.map(f => ({ 
+      favoritoId: f.id, 
+      mascotaId: Array.isArray(f.fields.mascota) ? f.fields.mascota[0] : f.fields.mascota 
+      }));
+    };
 
-    const isFavorito = favoritosData.records.some(fav =>
-      fav.fields.user?.[0] === user.id && 
-      fav.fields.pet?.[0] === pet.id
-    );
+    await cargarFavoritos();
+
+    const isFavorito = favoritosAirtable.find(f => f.mascotaId === pet.id); 
 
     if (isFavorito) {
       favButton.disabled = true;
@@ -90,4 +91,5 @@ document.addEventListener('DOMContentLoaded', async () => {
         alert("Error al agregar a favoritos. Inténtalo de nuevo.");
       }
     });
+   
 });
