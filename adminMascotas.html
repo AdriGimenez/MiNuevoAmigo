@@ -61,14 +61,16 @@
         <label for="story">Historia</label>
         <textarea id="story"></textarea>
 
-        <label for="image">Imagen (URL directa)</label>
-        <input type="text" id="image" placeholder="https://..." />
+        <label for="image-file">Imagen (Seleccionar archivo)</label>
+        <input type="file" id="image-file" accept="image/*" />
+
+        <input type="hidden" id="image" />
 
         <img id="preview-img" class="preview hidden" style="max-width:100%; margin-top:10px; border-radius:10px;">
 
         <div class="form-buttons">
-          <button type="button" id="btn-delete" class="button">Cancelar</button>
-          <button type="submit" id="btn-edit" class="button">Guardar</button>
+          <button type="button" id="btn-cancelar" class="button">Cancelar</button>
+          <button type="submit" id="btn-guardar" class="button">Guardar</button>
         </div>
       </form>
     </div>
