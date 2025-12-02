@@ -39,7 +39,6 @@ export async function createFavorite(userId, petId) {
     });
 }
 export async function getFavorites() { return airtableFetch(TABLES.Favoritos); }
-export async function getFavorites() { return airtableFetch(TABLES.Favoritos); }
 export async function deleteFavorite(favId) {
   const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLES.Favoritos}/${favId}`;
   const options = { method: "DELETE", headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } };
@@ -47,8 +46,8 @@ export async function deleteFavorite(favId) {
   if (!response.ok) throw new Error("Airtable request failed");
   return await response.json();
 }
-export async function getFavoritosByUsername(username) {
 
+export async function getFavoritosByUsername(username) {
     const formula = `{usuario}='${username}'`;
     const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLES.Favoritos}?filterByFormula=${encodeURIComponent(formula)}`;
     console.log("Fetching favoritos with URL:", url);
@@ -56,6 +55,16 @@ export async function getFavoritosByUsername(username) {
     const data = await res.json();
     return await data.records || [];
 }
+
 export async function createSolicitud(data) {
     return airtableFetch(TABLES.Solicitudes, "POST", data);
+}
+export async function getSolicitudes() { return airtableFetch(TABLES.Solicitudes); }
+export async function getSolicitudesByUser(username) {
+    const formula = `{usuario}='${username}'`;
+    const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLES.Solicitudes}?filterByFormula=${encodeURIComponent(formula)}`;
+    console.log("Fetching solicitudes with URL:", url);
+    const res = await fetch(url, { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } });
+    const data = await res.json();
+    return data.records || [];
 }

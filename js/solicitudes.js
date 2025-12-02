@@ -1,73 +1,76 @@
-import { AIRTABLE_TOKEN, BASE_ID } from "./env.js";
+import { getSolicitudesByUser, getPets } from "./airtable.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const user = JSON.parse(localStorage.getItem("user"));
   const container = document.getElementById("solicitudesContainer");
+  const user = JSON.parse(localStorage.getItem("user"));
 
   if (!user) {
-    container.innerHTML = "<p>Debes iniciar sesión para ver tus solicitudes.</p>";
+    container.innerHTML = "<p>Por favor, inicia sesión para ver tus solicitudes.</p>";
     return;
   }
 
-  try {
-    const response = await fetch(
-      `https://api.airtable.com/v0/${BASE_ID}/Solicitudes?filterByFormula={usuario}='${user.username}'`,
-      {
-        headers: {
-          Authorization: `Bearer ${AIRTABLE_TOKEN}`,
-          "Content-Type": "application/json"
-        }
-      }
-    );
+  const fetchMascotaData = async (mascotaId) => {
+    const petsData = await getPets();
+    return petsData.records.find(p => p.id === mascotaId)?.fields || null;
+  };
 
-    if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
-    const data = await response.json();
-    const solicitudes = data.records;
+  const renderSolicitudes = async () => {
+    container.innerHTML = "";
+    let solicitudesRecords;
 
-    if (solicitudes.length === 0) {
-      container.innerHTML = "<p>No hay solicitudes registradas.</p>";
+    try {
+      solicitudesRecords = await getSolicitudesByUser(user.username);
+    } catch (error) {
+      console.error("Error al cargar solicitudes:", error);
+      container.innerHTML = `
+        <div class="favoritos-empty">
+          <p class="patas">⚠️</p>
+          <p class="mensaje">Error al cargar las solicitudes 😿</p>
+        </div>
+      `;
       return;
     }
 
-    container.innerHTML = "";
-
-    for (const solicitud of solicitudes) {
-      const fields = solicitud.fields;
-      let mascotaName = "Sin datos";
-      let mascotaImg = "./img/placeholder.png";
-
-      if (fields.mascota && fields.mascota.length > 0) {
-        const mascotaId = fields.mascota[0];
-        const mascotaRes = await fetch(
-          `https://api.airtable.com/v0/${BASE_ID}/Mascotas/${mascotaId}`,
-          {
-            headers: {
-              Authorization: `Bearer ${AIRTABLE_TOKEN}`,
-              "Content-Type": "application/json"
-            }
-          }
-        );
-        const mascotaData = await mascotaRes.json();
-        mascotaName = mascotaData.fields?.name || "Sin datos";
-        mascotaImg = mascotaData.fields?.image?.[0]?.url || "./img/placeholder.png";
-      }
-
-      container.innerHTML += `
-        <div class="solicitud-item">
-          <div class="solicitud-header">
-            <img src="${mascotaImg}" alt="${mascotaName}" class="solicitud-img">
-            <h3>Mascota: ${mascotaName}</h3>
-          </div>
-          <p><strong>Estado:</strong> ${fields.estado || "Pendiente"}</p>
-          <p><strong>Mensaje:</strong> ${fields.mensaje || ""}</p>
-          <p><strong>Teléfono:</strong> ${fields.telefono || ""}</p>
-          <p><strong>Dirección:</strong> ${fields.direccion || ""}</p>
+    if (!solicitudesRecords || solicitudesRecords.length === 0) {
+      container.innerHTML = `
+        <div class="favoritos-empty">
+          <p class="patas">🐾</p>
+          <p class="mensaje">No tienes solicitudes realizadas aún 🐾</p>
+          <a href="./mascotas.html" class="boton-ver">Ver Mascotas</a>
         </div>
       `;
+      return;
     }
 
-  } catch (error) {
-    console.error("Error al cargar las solicitudes:", error);
-    container.innerHTML = "<p>Error al cargar las solicitudes.</p>";
-  }
+    for (const solicitud of solicitudesRecords) {
+      const mascotaId = Array.isArray(solicitud.fields.mascota)
+        ? solicitud.fields.mascota[0]
+        : solicitud.fields.mascota;
+
+      const fields = await fetchMascotaData(mascotaId);
+      if (!fields) continue;
+
+      // Variables para la mascota
+      const mascotaImg = fields.image?.[0]?.url || "ruta-default.png";
+      const mascotaName = fields.name || "Mascota sin nombre";
+
+      // Variables para la solicitud
+      const estado = solicitud.fields.estado || "Pendiente";
+
+      const article = document.createElement("article");
+      article.classList.add("solicitud-item");
+
+      article.innerHTML += `
+          <div class="solicitud-header">
+            <img src="${mascotaImg}" alt="Imagen de ${mascotaName}" class="solicitud-img"/>
+            <h3> Mascota: ${mascotaName} </h3>
+          </div>
+          <p><strong>Estado:</strong> ${estado}</p>
+      `;
+
+      container.appendChild(article);
+    }
+  };
+
+  await renderSolicitudes();
 });

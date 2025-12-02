@@ -209,7 +209,7 @@ footer {
     justify-content: center;
     gap: 0.5rem;
 }
-/* BIEN */
+
 /* ===========================
    SECCION: HERO
 =========================== */
@@ -352,7 +352,7 @@ footer {
     margin: 0;
     color: #555;
 }
-/* BIEN HASTA ACA PÁGINA INDEX */
+
 /* ===============================
    SECCION CASOS DE EXITO / CONSEJOS
 =============================== */
@@ -427,7 +427,7 @@ footer {
 .case p {
     flex: 1;
 }
-/* BIEN HASTA ACA PÁGINA COMUNIDAD */
+
 /* ===============================
    CONTENEDOR BUSQUEDA + FILTROS
 =============================== */
@@ -465,7 +465,7 @@ footer {
   border-color: #6A0DAD;
   box-shadow: 0 0 10px rgba(106, 13, 173, 0.3);
 }
-/* BIEN HASTA BÚSQUEDA */
+
 /* ===============================
    FILTROS
 =============================== */
@@ -507,7 +507,7 @@ footer {
   border-color: #6A0DAD;
   box-shadow: 0 0 8px rgba(106, 13, 173, 0.3);
 }
-/* BIEN HASTA FILTROS */
+
 /* ===============================
    SECCIÓN: MASCOTAS
 =============================== */
@@ -626,7 +626,7 @@ footer {
     font-size: 1rem;
     text-align: center;
 }
-/* BIEN HASTA SECCION MASCOTAS CATÁLOGO */
+
 /* ===============================
    SECCIÓN: DETALLE DE MASCOTA
 =============================== */
@@ -742,7 +742,7 @@ footer {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
-/* BIEN HASTA MASCOTA DETAIL */
+
 /* =======================================
    FORMULARIO DE ADOPCIÓN + MASCOTA
 ======================================= */
@@ -866,14 +866,13 @@ footer {
 .adoption-form button:hover {
   background-color: var(--purple-light);
 }
-/* BIEN HASTA ADOPCION */
+
 /* ===============================
    SECCIÓN: LISTA DE SOLICITUDES
 =============================== */
 #solicitudesContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 20px;
 }
 
@@ -917,7 +916,7 @@ footer {
   transform: scale(1.05);
 }
 
-.solicitud-header h4 {
+.solicitud-header h3 {
   font-size: 1.6rem;
   color: var(--purple-medium);
   margin: 0;
@@ -934,7 +933,7 @@ footer {
   font-weight: 600;
   color: var(--purple-medium);
 }
-/* BIEN PÁGINA SOLICITUDES ADOPTANTE */
+
 /* ===============================
    FAVORITOS
 =============================== */
@@ -985,7 +984,7 @@ footer {
     gap: 20px;
     padding: 20px;
 }
-/* BIEN PÁGINA FAVORITOS */
+
 /* =======================================
    FORMULARIOS (Login, Registro, Contacto)
 ======================================= */
@@ -1125,8 +1124,6 @@ input:focus {
     background-color: var(--purple-dark);
     transform: translateY(-0.1rem);
 }
-/* BOTON Ver Más, Hero, Slides
-BIEN */
 
 /* ============================
    BOTON FAVORITO
@@ -1525,6 +1522,9 @@ BIEN */
         font-size: 0.9rem;
         padding: 0.5rem 0.6rem;
     }
+    footer{
+      font-size: 12px;
+    }
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
@@ -1679,4 +1679,13 @@ BIEN */
         font-size: 1.1rem;
         padding: 0.4rem 0.8rem;
     }
+    
+    footer{
+      font-size: 18px;
+    }
+    
+    .footer-btn {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.85rem;
+  }
 }
