@@ -22,7 +22,7 @@ const storyInput = document.getElementById("story");
 const imageInput = document.getElementById("image");
 const imageFile = document.getElementById("image-file");
 const previewImg = document.getElementById("preview-img");
-const btnCancelar = document.getElementById("btn-cancelar"); 
+const btnCancelar = document.getElementById("btn-delete"); 
 const petsBody = document.getElementById("pets-body");
 const formTitle = document.getElementById("form-title");
 
@@ -126,8 +126,8 @@ async function loadPets() {
                 <td>${m.size || ""}</td>
                 <td>${m.gender || ""}</td>
                 <td>
-                    <button id="btn-edit" class="button" data-id="${record.id}">Editar</button>
-                    <button id="btn-delete" class="button" data-id="${record.id}">Eliminar</button>
+                    <button id="btn-edit" class="button btn-edit" data-id="${record.id}">Editar</button>
+                    <button id="btn-delete" class="button btn-delete" data-id="${record.id}">Eliminar</button>
                 </td>
             `;
             petsBody.appendChild(tr);
